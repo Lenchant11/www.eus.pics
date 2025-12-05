@@ -1,0 +1,2329 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Testa Prodotti Gratis | Guadagna Scrivendo Recensioni Oneste</title>
+  <meta name="description" content="Ottieni prodotti GRATIS da Amazon, eBay, Zalando e altri! Testa prodotti, scrivi recensioni oneste e guadagna fino a €50 al giorno. Solo per residenti in Italia." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17658750857"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-17658750857');
+    
+    // Enhanced conversion reporting with fallback
+    function gtag_report_conversion(url) {
+      const callback = function () {
+        if (typeof(url) != 'undefined') {
+          setTimeout(function() {
+            // Open WhatsApp link in new tab
+            const newWindow = window.open(url, '_blank');
+            if (!newWindow || newWindow.closed || typeof newWindow.closed == 'undefined') {
+              window.location.href = url;
+            }
+          }, 300);
+        }
+      };
+      
+      // Send conversion event with retry mechanism
+      let eventSent = false;
+      const maxAttempts = 2;
+      let attempts = 0;
+      
+      const sendEvent = () => {
+        try {
+          if (!eventSent) {
+            gtag('event', 'conversion', {
+              'send_to': 'AW-17658750857/6DRCCK-7gcobEInPrORB',
+              'event_callback': callback,
+              'value': 25,
+              'currency': 'EUR'
+            });
+            
+            gtag('event', 'generate_lead', {
+              'currency': 'EUR',
+              'value': 25
+            });
+            eventSent = true;
+          }
+        } catch (e) {
+          attempts++;
+          if (attempts < maxAttempts) {
+            setTimeout(sendEvent, 100);
+          } else {
+            callback();
+          }
+        }
+      };
+      
+      sendEvent();
+      
+      // Fallback - always open WhatsApp after timeout
+      setTimeout(() => {
+        if (!eventSent) {
+          callback();
+        }
+      }, 1000);
+      
+      return false;
+    }
+  </script>
+  
+  <style>
+    /* === ROOT VARIABLES === */
+    :root {
+      /* Italia-inspired color palette */
+      --primary: #008C45;      /* Verde Italia */
+      --secondary: #F4F9FF;    /* Bianco Italia */
+      --accent: #CD212A;       /* Rosso Italia */
+      --light: #F8F9FA;
+      --dark: #1A202C;
+      --gray-100: #F7FAFC;
+      --gray-200: #EDF2F7;
+      --gray-300: #E2E8F0;
+      --gray-600: #718096;
+      --gray-800: #2D3748;
+      --gold: #E6B31E;         /* Oro per elementi premium */
+      
+      /* Typography */
+      --font-heading: 'Poppins', sans-serif;
+      --font-body: 'Inter', sans-serif;
+      
+      /* Spacing - Reduced for mobile */
+      --space-xs: 0.25rem;
+      --space-sm: 0.75rem;
+      --space-md: 1.5rem;
+      --space-lg: 2rem;
+      --space-xl: 3rem;
+      
+      /* Border radius */
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 16px;
+      --radius-full: 9999px;
+      
+      /* Shadows */
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+      --shadow-md: 0 3px 10px rgba(0, 0, 0, 0.12);
+      --shadow-lg: 0 5px 20px rgba(0, 0, 0, 0.15);
+      
+      /* Transitions */
+      --transition-fast: 0.15s ease;
+      --transition-base: 0.25s ease;
+    }
+    
+    /* === RESET & BASE STYLES === */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    body {
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.5;
+      color: var(--gray-800);
+      background-color: var(--light);
+      overflow-x: hidden;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      line-height: 1.3;
+      color: var(--dark);
+    }
+    
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: var(--transition-fast);
+    }
+    
+    button, input, select, textarea {
+      font-family: inherit;
+      font-size: inherit;
+    }
+    
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+    
+    ul, ol {
+      list-style: none;
+    }
+    
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 var(--space-sm);
+    }
+    
+    .section {
+      padding: var(--space-lg) 0;
+    }
+    
+    @media (max-width: 768px) {
+      .section {
+        padding: var(--space-md) 0;
+      }
+    }
+    
+    .section-header {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto var(--space-md);
+    }
+    
+    .section-title {
+      font-size: 1.75rem;
+      margin-bottom: var(--space-sm);
+      color: var(--primary);
+      position: relative;
+      display: inline-block;
+    }
+    
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 3px;
+      background: linear-gradient(to right, var(--primary), var(--accent));
+      border-radius: 2px;
+    }
+    
+    @media (max-width: 768px) {
+      .section-title {
+        font-size: 1.5rem;
+      }
+    }
+    
+    .section-subtitle {
+      font-size: 1rem;
+      color: var(--gray-600);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    /* === BUTTONS === */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.875rem 1.5rem;
+      border-radius: var(--radius-md);
+      font-weight: 600;
+      font-family: var(--font-heading);
+      border: none;
+      cursor: pointer;
+      transition: var(--transition-base);
+      text-align: center;
+    }
+    
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), #00A550);
+      color: white;
+      box-shadow: var(--shadow-md);
+    }
+    
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+      background: linear-gradient(135deg, #007A3A, var(--primary));
+    }
+    
+    .btn-secondary {
+      background: white;
+      color: var(--primary);
+      border: 2px solid var(--primary);
+    }
+    
+    .btn-secondary:hover {
+      background: var(--gray-100);
+    }
+    
+    .btn-lg {
+      padding: 1rem 2rem;
+      font-size: 1.125rem;
+    }
+    
+    .btn-block {
+      width: 100%;
+    }
+    
+    .btn-icon {
+      font-size: 1.1em;
+    }
+    
+    /* === HEADER & NAVIGATION === */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--gray-200);
+      padding: 0.75rem 0;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    }
+    
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: var(--primary);
+    }
+    
+    .logo-icon {
+      width: 36px;
+      height: 36px;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+    }
+    
+    .nav-links {
+      display: none;
+    }
+    
+    @media (min-width: 1024px) {
+      .nav-links {
+        display: flex;
+        gap: 1.5rem;
+        align-items: center;
+      }
+    }
+    
+    .nav-link {
+      font-weight: 500;
+      font-size: 0.95rem;
+      color: var(--gray-800);
+    }
+    
+    .nav-link:hover {
+      color: var(--primary);
+    }
+    
+    .nav-cta {
+      display: none;
+    }
+    
+    @media (min-width: 1024px) {
+      .nav-cta {
+        display: block;
+        margin-left: 0.5rem;
+      }
+    }
+    
+    .mobile-menu-btn {
+      display: block;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: var(--primary);
+      cursor: pointer;
+    }
+    
+    @media (min-width: 1024px) {
+      .mobile-menu-btn {
+        display: none;
+      }
+    }
+    
+    /* === URGENCY BAR === */
+    .urgency-bar {
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      color: white;
+      padding: 0.75rem 0;
+      position: relative;
+      overflow: hidden;
+      margin-top: 60px;
+    }
+    
+    .urgency-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+    }
+    
+    @media (min-width: 768px) {
+      .urgency-bar {
+        padding: 1rem 0;
+      }
+      
+      .urgency-container {
+        justify-content: flex-start;
+      }
+    }
+    
+    .urgency-scroll {
+      display: flex;
+      animation: scrollText 25s linear infinite;
+      white-space: nowrap;
+    }
+    
+    @keyframes scrollText {
+      0% { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
+    }
+    
+    @media (max-width: 767px) {
+      .urgency-scroll {
+        animation: scrollText 20s linear infinite;
+      }
+    }
+    
+    .urgency-content {
+      display: inline-flex;
+      gap: 2rem;
+      padding: 0 1rem;
+      align-items: center;
+    }
+    
+    .urgency-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+    
+    .urgency-icon {
+      font-size: 1em;
+    }
+    
+    /* === HERO SECTION === */
+    .hero {
+      padding: var(--space-md) 0;
+      background: linear-gradient(135deg, rgba(240, 248, 255, 0.95) 0%, rgba(255, 255, 255, 0.95) 100%);
+      position: relative;
+      overflow: hidden;
+      min-height: 600px;
+      display: flex;
+      align-items: center;
+    }
+    
+    @media (max-width: 768px) {
+      .hero {
+        min-height: auto;
+        padding: var(--space-lg) 0;
+      }
+    }
+    
+    .hero-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: 
+        linear-gradient(90deg, rgba(240, 248, 255, 0.95) 0%, rgba(240, 248, 255, 0.85) 50%, rgba(240, 248, 255, 0.7) 100%),
+        url('https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+      background-size: cover;
+      background-position: center right;
+      z-index: 1;
+    }
+    
+    @media (max-width: 1024px) {
+      .hero-bg {
+        background: 
+          linear-gradient(90deg, rgba(240, 248, 255, 0.95) 0%, rgba(240, 248, 255, 0.85) 70%, rgba(240, 248, 255, 0.7) 100%),
+          url('https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+        background-size: cover;
+        background-position: center right;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .hero-bg {
+        background: 
+          linear-gradient(rgba(240, 248, 255, 0.95) 0%, rgba(240, 248, 255, 0.85) 100%),
+          url('https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');
+        background-size: cover;
+        background-position: center;
+      }
+    }
+    
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-md);
+      position: relative;
+      z-index: 2;
+    }
+    
+    @media (min-width: 1024px) {
+      .hero-grid {
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: var(--space-lg);
+      }
+    }
+    
+    .hero-content {
+      text-align: center;
+    }
+    
+    @media (min-width: 1024px) {
+      .hero-content {
+        text-align: left;
+      }
+    }
+    
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: white;
+      color: var(--primary);
+      padding: 0.5rem 1rem;
+      border-radius: var(--radius-full);
+      font-weight: 600;
+      margin-bottom: var(--space-sm);
+      box-shadow: var(--shadow-sm);
+      font-size: 0.875rem;
+      border: 1px solid var(--primary);
+    }
+    
+    .hero-title {
+      font-size: 1.75rem;
+      margin-bottom: var(--space-sm);
+      line-height: 1.2;
+    }
+    
+    @media (min-width: 768px) {
+      .hero-title {
+        font-size: 2rem;
+      }
+    }
+    
+    @media (min-width: 1024px) {
+      .hero-title {
+        font-size: 2.5rem;
+      }
+    }
+    
+    .hero-subtitle {
+      font-size: 1rem;
+      color: var(--gray-600);
+      margin-bottom: var(--space-md);
+    }
+    
+    @media (min-width: 768px) {
+      .hero-subtitle {
+        font-size: 1.125rem;
+      }
+    }
+    
+    .hero-features {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      margin-bottom: var(--space-md);
+    }
+    
+    @media (max-width: 480px) {
+      .hero-features {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .feature-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    
+    .feature-icon {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      flex-shrink: 0;
+      font-size: 1rem;
+    }
+    
+    .feature-text strong {
+      display: block;
+      font-size: 0.95rem;
+      margin-bottom: 0.125rem;
+    }
+    
+    .feature-text p {
+      color: var(--gray-600);
+      font-size: 0.85rem;
+    }
+    
+    /* Mobile CTA moved up */
+    .mobile-cta {
+      margin-bottom: var(--space-md);
+    }
+    
+    @media (min-width: 1024px) {
+      .mobile-cta {
+        display: none;
+      }
+    }
+    
+    /* === APPLICATION FORM === */
+    .form-card {
+      background: white;
+      border-radius: var(--radius-lg);
+      padding: var(--space-md);
+      box-shadow: var(--shadow-lg);
+      border: 1px solid var(--gray-200);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .form-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+    }
+    
+    .form-header {
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+    
+    .form-title {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+      color: var(--primary);
+    }
+    
+    .form-subtitle {
+      color: var(--gray-600);
+      font-size: 0.95rem;
+    }
+    
+    .form-step {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .step-item {
+      flex: 1;
+      height: 3px;
+      background: var(--gray-200);
+      border-radius: 2px;
+    }
+    
+    .step-item.active {
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+    }
+    
+    .form-group {
+      margin-bottom: 1rem;
+    }
+    
+    .form-label {
+      display: block;
+      margin-bottom: 0.375rem;
+      font-weight: 600;
+      color: var(--gray-800);
+      font-size: 0.95rem;
+    }
+    
+    .form-label .required {
+      color: var(--accent);
+    }
+    
+    .form-control {
+      width: 100%;
+      padding: 0.875rem;
+      border: 1.5px solid var(--gray-300);
+      border-radius: var(--radius-md);
+      font-size: 0.95rem;
+      transition: var(--transition-fast);
+      background: white;
+    }
+    
+    .form-control:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 2px rgba(0, 140, 69, 0.1);
+    }
+    
+    .phone-group {
+      display: flex;
+    }
+    
+    .country-code {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.875rem;
+      background: var(--gray-100);
+      border: 1.5px solid var(--gray-300);
+      border-right: none;
+      border-radius: var(--radius-md) 0 0 var(--radius-md);
+      font-weight: 600;
+      font-size: 0.95rem;
+      flex-shrink: 0;
+    }
+    
+    .phone-input {
+      flex: 1;
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    }
+    
+    .form-check {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .form-check-input {
+      margin-top: 0.25rem;
+      flex-shrink: 0;
+      width: 18px;
+      height: 18px;
+    }
+    
+    .form-check-label {
+      font-size: 0.85rem;
+      color: var(--gray-600);
+      line-height: 1.4;
+    }
+    
+    .form-check-label a {
+      color: var(--primary);
+      font-weight: 600;
+    }
+    
+    .form-check-label a:hover {
+      text-decoration: underline;
+    }
+    
+    .security-badge {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.875rem;
+      background: rgba(16, 185, 129, 0.08);
+      border: 1px solid rgba(16, 185, 129, 0.15);
+      border-radius: var(--radius-md);
+      margin-top: 1.5rem;
+      font-size: 0.85rem;
+    }
+    
+    .security-icon {
+      color: #10B981;
+      font-size: 1rem;
+    }
+    
+    /* Hero form - show on mobile */
+    .hero-form {
+      display: block;
+    }
+    
+    @media (min-width: 1024px) {
+      .hero-form {
+        display: block;
+      }
+    }
+    
+    /* === COMPANIES SECTION === */
+    .companies-section {
+      background: var(--gray-100);
+    }
+    
+    .companies-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      margin-top: var(--space-md);
+    }
+    
+    @media (min-width: 768px) {
+      .companies-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1.5rem;
+      }
+    }
+    
+    .company-card {
+      background: white;
+      padding: 1.5rem 1rem;
+      border-radius: var(--radius-md);
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition-base);
+      border: 1px solid var(--gray-200);
+    }
+    
+    .company-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--primary);
+    }
+    
+    .company-logo {
+      width: 60px;
+      height: 60px;
+      margin: 0 auto 1rem;
+      background: white;
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary);
+      font-weight: 700;
+      font-size: 1.25rem;
+      border: 1px solid var(--gray-300);
+    }
+    
+    @media (min-width: 768px) {
+      .company-logo {
+        width: 70px;
+        height: 70px;
+      }
+    }
+    
+    .company-name {
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+      font-size: 1.1rem;
+    }
+    
+    .company-jobs {
+      color: var(--gray-600);
+      font-size: 0.85rem;
+    }
+    
+    /* === PRODUCTS SECTION === */
+    .products-section {
+      background: white;
+    }
+    
+    .products-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      margin-top: var(--space-md);
+    }
+    
+    @media (min-width: 768px) {
+      .products-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    
+    .product-card {
+      background: white;
+      border-radius: var(--radius-lg);
+      padding: var(--space-md);
+      box-shadow: var(--shadow-md);
+      transition: var(--transition-base);
+      border: 1px solid var(--gray-200);
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+    
+    .product-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+    }
+    
+    .product-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--primary);
+    }
+    
+    .product-badge {
+      display: inline-block;
+      padding: 0.375rem 1rem;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      color: white;
+      border-radius: var(--radius-full);
+      font-weight: 600;
+      font-size: 0.8rem;
+      margin-bottom: 1rem;
+    }
+    
+    .product-icon {
+      font-size: 2.5rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+    
+    .product-title {
+      font-size: 1.25rem;
+      margin-bottom: 0.75rem;
+      color: var(--dark);
+    }
+    
+    .product-salary {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 1.25rem;
+      margin-bottom: 1rem;
+    }
+    
+    .product-features {
+      margin-bottom: 1.5rem;
+    }
+    
+    .product-feature {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.75rem;
+      color: var(--gray-600);
+      font-size: 0.9rem;
+      justify-content: center;
+    }
+    
+    .product-feature i {
+      color: var(--primary);
+      width: 18px;
+      font-size: 1rem;
+    }
+    
+    /* === STATS SECTION === */
+    .stats-section {
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      color: white;
+    }
+    
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      text-align: center;
+    }
+    
+    @media (min-width: 768px) {
+      .stats-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1.5rem;
+      }
+    }
+    
+    .stat-item {
+      padding: 1.5rem 1rem;
+    }
+    
+    .stat-number {
+      font-size: 1.75rem;
+      font-weight: 800;
+      margin-bottom: 0.25rem;
+      line-height: 1;
+    }
+    
+    @media (min-width: 768px) {
+      .stat-number {
+        font-size: 2.5rem;
+      }
+    }
+    
+    .stat-label {
+      font-size: 0.9rem;
+      opacity: 0.9;
+    }
+    
+    @media (min-width: 768px) {
+      .stat-label {
+        font-size: 1rem;
+      }
+    }
+    
+    /* === HOW IT WORKS === */
+    .how-it-works {
+      background: white;
+    }
+    
+    .steps-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      margin-top: var(--space-md);
+    }
+    
+    @media (min-width: 768px) {
+      .steps-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    
+    .step-card {
+      background: white;
+      border-radius: var(--radius-lg);
+      padding: var(--space-md);
+      text-align: center;
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--gray-200);
+      transition: var(--transition-base);
+    }
+    
+    .step-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+    }
+    
+    .step-number {
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 700;
+      font-size: 1.25rem;
+      margin: 0 auto 1rem;
+    }
+    
+    .step-title {
+      font-size: 1.25rem;
+      margin-bottom: 0.75rem;
+    }
+    
+    .step-description {
+      color: var(--gray-600);
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+    
+    /* === TESTIMONIALS === */
+    .testimonials-section {
+      background: var(--gray-100);
+    }
+    
+    .testimonials-slider {
+      max-width: 800px;
+      margin: var(--space-md) auto 0;
+      position: relative;
+    }
+    
+    .testimonial-card {
+      background: white;
+      border-radius: var(--radius-lg);
+      padding: var(--space-md);
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--gray-200);
+      position: relative;
+    }
+    
+    .testimonial-card::before {
+      content: '"';
+      position: absolute;
+      top: 0.5rem;
+      left: 0.5rem;
+      font-size: 3rem;
+      font-family: Georgia, serif;
+      color: var(--gray-300);
+      line-height: 1;
+    }
+    
+    .testimonial-content {
+      font-size: 1rem;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+      position: relative;
+      z-index: 1;
+      font-style: italic;
+    }
+    
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    
+    .author-avatar {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 700;
+      font-size: 1.25rem;
+      flex-shrink: 0;
+    }
+    
+    .author-info h4 {
+      margin-bottom: 0.125rem;
+      font-size: 1.1rem;
+    }
+    
+    .author-info p {
+      color: var(--gray-600);
+      font-size: 0.85rem;
+    }
+    
+    /* === FAQ === */
+    .faq-section {
+      background: var(--gray-100);
+    }
+    
+    .faq-grid {
+      max-width: 800px;
+      margin: var(--space-md) auto 0;
+    }
+    
+    .faq-item {
+      background: white;
+      border-radius: var(--radius-md);
+      margin-bottom: 0.75rem;
+      overflow: hidden;
+      border: 1px solid var(--gray-200);
+      transition: var(--transition-base);
+    }
+    
+    .faq-item.active {
+      box-shadow: var(--shadow-md);
+      border-color: var(--primary);
+    }
+    
+    .faq-question {
+      padding: 1.25rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 1rem;
+      color: var(--dark);
+    }
+    
+    .faq-question:hover {
+      background: var(--gray-100);
+    }
+    
+    .faq-icon {
+      transition: var(--transition-base);
+      color: var(--primary);
+      font-size: 0.9rem;
+    }
+    
+    .faq-item.active .faq-icon {
+      transform: rotate(180deg);
+    }
+    
+    .faq-answer {
+      padding: 0 1.25rem 1.25rem;
+      color: var(--gray-600);
+      line-height: 1.6;
+      font-size: 0.95rem;
+      display: none;
+    }
+    
+    .faq-item.active .faq-answer {
+      display: block;
+    }
+    
+    /* === CTA SECTION === */
+    .cta-section {
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      color: white;
+      text-align: center;
+    }
+    
+    .cta-title {
+      font-size: 1.75rem;
+      margin-bottom: var(--space-sm);
+    }
+    
+    @media (min-width: 768px) {
+      .cta-title {
+        font-size: 2rem;
+      }
+    }
+    
+    .cta-subtitle {
+      font-size: 1rem;
+      opacity: 0.9;
+      margin-bottom: var(--space-md);
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    @media (min-width: 768px) {
+      .cta-subtitle {
+        font-size: 1.125rem;
+      }
+    }
+    
+    /* === FOOTER === */
+    .footer {
+      background: var(--dark);
+      color: white;
+      padding: var(--space-lg) 0 var(--space-md);
+    }
+    
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-md);
+      margin-bottom: var(--space-md);
+    }
+    
+    @media (min-width: 768px) {
+      .footer-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    
+    .footer-logo {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      display: inline-block;
+      color: white;
+    }
+    
+    .footer-description {
+      color: rgba(255, 255, 255, 0.7);
+      margin-bottom: 1rem;
+      line-height: 1.5;
+      font-size: 0.9rem;
+    }
+    
+    .footer-links h3 {
+      color: white;
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+    }
+    
+    .footer-links ul {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    
+    .footer-links a {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 0.9rem;
+    }
+    
+    .footer-links a:hover {
+      color: white;
+    }
+    
+    .footer-bottom {
+      text-align: center;
+      padding-top: var(--space-md);
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 0.8rem;
+    }
+    
+    /* === MODAL === */
+    .modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
+      opacity: 0;
+      visibility: hidden;
+      transition: var(--transition-base);
+      padding: var(--space-sm);
+    }
+    
+    .modal.active {
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    .modal-content {
+      background: white;
+      border-radius: var(--radius-lg);
+      padding: var(--space-md);
+      max-width: 500px;
+      width: 100%;
+      position: relative;
+      box-shadow: var(--shadow-lg);
+      animation: modalIn 0.3s ease;
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+    
+    @keyframes modalIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .modal-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: var(--gray-600);
+      cursor: pointer;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition-fast);
+      z-index: 2;
+    }
+    
+    .modal-close:hover {
+      background: var(--gray-100);
+      color: var(--dark);
+    }
+    
+    .modal-title {
+      font-size: 1.5rem;
+      margin-bottom: 0.75rem;
+      text-align: center;
+      color: var(--primary);
+    }
+    
+    .modal-message {
+      text-align: center;
+      color: var(--gray-600);
+      line-height: 1.5;
+      margin-bottom: 1.5rem;
+      font-size: 0.95rem;
+    }
+    
+    /* Age Warning Modal */
+    .age-warning-modal .modal-content {
+      max-width: 400px;
+    }
+    
+    /* === ANIMATIONS === */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .fade-in {
+      opacity: 0;
+      animation: fadeIn 0.4s ease forwards;
+    }
+    
+    .delay-1 {
+      animation-delay: 0.1s;
+    }
+    
+    .delay-2 {
+      animation-delay: 0.2s;
+    }
+    
+    .delay-3 {
+      animation-delay: 0.3s;
+    }
+    
+    /* === UTILITY CLASSES === */
+    .text-center {
+      text-align: center;
+    }
+    
+    .text-primary {
+      color: var(--primary);
+    }
+    
+    .text-gradient {
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    
+    .mb-1 { margin-bottom: 0.5rem; }
+    .mb-2 { margin-bottom: 0.75rem; }
+    .mb-3 { margin-bottom: 1.25rem; }
+    .mb-4 { margin-bottom: 1.5rem; }
+    
+    .mt-1 { margin-top: 0.5rem; }
+    .mt-2 { margin-top: 0.75rem; }
+    .mt-3 { margin-top: 1.25rem; }
+    .mt-4 { margin-top: 1.5rem; }
+    
+    .d-none {
+      display: none;
+    }
+    
+    .d-block {
+      display: block;
+    }
+    
+    @media (min-width: 1024px) {
+      .d-lg-block {
+        display: block;
+      }
+      
+      .d-lg-none {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header" id="header">
+    <div class="container">
+      <nav class="nav">
+        <a href="#" class="logo">
+          <div class="logo-icon">
+            <i class="fas fa-box-open"></i>
+          </div>
+          <span>ProdottoTest.it</span>
+        </a>
+        
+        <div class="nav-links">
+          <a href="#prodotti" class="nav-link">Prodotti</a>
+          <a href="#kif" class="nav-link">Come Funziona</a>
+          <a href="#testimonials" class="nav-link">Recensioni</a>
+          <a href="#faq" class="nav-link">FAQ</a>
+          <a href="#" class="btn btn-primary nav-cta open-modal-btn">
+            Iscriviti Ora
+          </a>
+        </div>
+        
+        <button class="mobile-menu-btn" id="mobileMenuBtn">
+          <i class="fas fa-bars"></i>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Urgency Bar - Fixed vertical centering -->
+  <div class="urgency-bar">
+    <div class="container urgency-container">
+      <div class="urgency-scroll">
+        <div class="urgency-content">
+          <div class="urgency-item">
+            <span class="urgency-icon">🔥</span>
+            <span>MARIA R. HA GUADAGNATO €80 OGGI!</span>
+          </div>
+          <div class="urgency-item">
+            <span class="urgency-icon">🚀</span>
+            <span>ULTIMI 10 POSTI DISPONIBILI!</span>
+          </div>
+          <div class="urgency-item">
+            <span class="urgency-icon">💰</span>
+            <span>GIOVANNI B. HA RICEVUTO €350 QUESTA SETTIMANA!</span>
+          </div>
+          <div class="urgency-item">
+            <span class="urgency-icon">⏰</span>
+            <span>OFFERTA SPECIALE: €20 bonus per nuovi tester!</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hero Section with Background Image -->
+  <section class="hero" id="top">
+    <div class="hero-bg"></div>
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-content fade-in">
+          <div class="hero-badge">
+            <i class="fas fa-gift"></i>
+            <span>NUOVA OPPORTUNITÀ DISPONIBILE</span>
+          </div>
+          
+          <h1 class="hero-title">
+            Ricevi Prodotti <span class="text-gradient">GRATIS da Amazon</span> e Guadagna Scrivendo Recensioni Oneste!
+          </h1>
+          
+          <p class="hero-subtitle">
+            Unisciti a migliaia di tester italiani. Ricevi prodotti gratuiti, testali, scrivi una recensione onesta e guadagna fino a €50 al giorno. Solo con il tuo smartphone!
+          </p>
+          
+          <!-- Mobile CTA Button - Moved Up -->
+          <div class="mobile-cta">
+            <button class="btn btn-primary btn-lg btn-block open-modal-btn mb-2">
+              <i class="fas fa-rocket btn-icon"></i>
+              Inizia Ora - Gratis!
+            </button>
+            <p style="color: var(--gray-600); font-size: 0.85rem;">
+              <i class="fas fa-shield-alt text-primary"></i>
+              100% Sicuro - Solo per residenti in Italia
+            </p>
+          </div>
+          
+          <div class="hero-features">
+            <div class="feature-item">
+              <div class="feature-icon">
+                <i class="fas fa-shopping-bag"></i>
+              </div>
+              <div class="feature-text">
+                <strong>Prodotti Gratis</strong>
+                <p>Amazon, eBay, Zalando</p>
+              </div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon">
+                <i class="fas fa-euro-sign"></i>
+              </div>
+              <div class="feature-text">
+                <strong>Guadagno Extra</strong>
+                <p>€10-€50 per prodotto</p>
+              </div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon">
+                <i class="fas fa-mobile-alt"></i>
+              </div>
+              <div class="feature-text">
+                <strong>Smartphone Basta</strong>
+                <p>Lavora da ovunque</p>
+              </div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon">
+                <i class="fas fa-calendar-check"></i>
+              </div>
+              <div class="feature-text">
+                <strong>Flessibilità Totale</strong>
+                <p>Quando vuoi tu</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Hero Form - Now visible on mobile too -->
+        <div class="hero-form form-card fade-in delay-1">
+          <div class="form-header">
+            <h2 class="form-title">Iscriviti Ora e Inizia a Testare!</h2>
+            <p class="form-subtitle">Compila il form qui sotto e ti contatteremo su WhatsApp entro 30 minuti</p>
+          </div>
+          
+          <div class="form-step">
+            <div class="step-item active"></div>
+            <div class="step-item"></div>
+            <div class="step-item"></div>
+          </div>
+          
+          <form id="applicationForm">
+            <div class="form-group">
+              <label for="name" class="form-label">
+                Nome e Cognome <span class="required">*</span>
+              </label>
+              <input type="text" id="name" class="form-control" placeholder="es. Mario Rossi" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="phone" class="form-label">
+                Numero WhatsApp <span class="required">*</span>
+              </label>
+              <div class="phone-group">
+                <div class="country-code">
+                  <img src="https://flagcdn.com/w20/it.png" alt="Bandiera Italia" width="20" height="15">
+                  <span>+39</span>
+                </div>
+                <input type="tel" id="phone" class="form-control phone-input" placeholder="es. 3401234567" required>
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label for="age" class="form-label">
+                Età <span class="required">*</span>
+              </label>
+              <input type="number" id="age" class="form-control" placeholder="es. 25" min="18" max="99" required>
+            </div>
+            
+            <div class="form-check">
+              <input type="checkbox" id="consent" class="form-check-input" required checked>
+              <label for="consent" class="form-check-label">
+                Accetto l'<a href="privacy.html" target="_blank">Informativa sulla Privacy</a> e 
+                i <a href="terms.html" target="_blank">Termini di Servizio</a>.
+              </label>
+            </div>
+            
+            <button type="submit" class="btn btn-primary btn-block">
+              <i class="fas fa-paper-plane btn-icon"></i>
+              Invia Iscrizione
+            </button>
+            
+            <div class="security-badge">
+              <i class="fas fa-lock security-icon"></i>
+              <span>I tuoi dati sono 100% sicuri e protetti</span>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Companies Section -->
+  <section class="section companies-section">
+    <div class="container">
+      <div class="section-header fade-in">
+        <h2 class="section-title">Collaboriamo con i Migliori E-commerce</h2>
+        <p class="section-subtitle">
+          Ricevi prodotti dalle migliori piattaforme di shopping online in Italia
+        </p>
+      </div>
+      
+      <div class="companies-grid">
+        <div class="company-card fade-in">
+          <div class="company-logo">
+            <i class="fab fa-amazon"></i>
+          </div>
+          <h3 class="company-name">Amazon Italia</h3>
+          <p class="company-jobs">50+ prodotti/mese</p>
+        </div>
+        
+        <div class="company-card fade-in delay-1">
+          <div class="company-logo">
+            <i class="fas fa-shopping-cart"></i>
+          </div>
+          <h3 class="company-name">eBay Italia</h3>
+          <p class="company-jobs">30+ prodotti/mese</p>
+        </div>
+        
+        <div class="company-card fade-in delay-2">
+          <div class="company-logo">
+            <i class="fas fa-tshirt"></i>
+          </div>
+          <h3 class="company-name">Zalando</h3>
+          <p class="company-jobs">Moda e accessori</p>
+        </div>
+        
+        <div class="company-card fade-in delay-3">
+          <div class="company-logo">
+            <i class="fas fa-laptop"></i>
+          </div>
+          <h3 class="company-name">MediaWorld</h3>
+          <p class="company-jobs">Elettronica e tech</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Products Section -->
+  <section class="section products-section" id="prodotti">
+    <div class="container">
+      <div class="section-header fade-in">
+        <h2 class="section-title">Categorie di Prodotti</h2>
+        <p class="section-subtitle">
+          Scegli tra diverse categorie di prodotti da testare
+        </p>
+      </div>
+      
+      <div class="products-grid">
+        <div class="product-card fade-in">
+          <div class="product-badge">PIÙ RICHIESTI</div>
+          <div class="product-icon">
+            <i class="fas fa-mobile-alt"></i>
+          </div>
+          <h3 class="product-title">Elettronica & Tech</h3>
+          <div class="product-salary">
+            <i class="fas fa-money-bill-wave"></i>
+            <span>Fino a €50/prodotto</span>
+          </div>
+          <div class="product-features">
+            <div class="product-feature">
+              <i class="fas fa-clock"></i>
+              <span>Test di 3-7 giorni</span>
+            </div>
+            <div class="product-feature">
+              <i class="fas fa-gift"></i>
+              <span>Prodotto in regalo</span>
+            </div>
+            <div class="product-feature">
+              <i class="fas fa-star"></i>
+              <span>Recensione onesta</span>
+            </div>
+          </div>
+          <button class="btn btn-primary btn-block open-modal-btn">
+            Iscriviti Ora
+          </button>
+        </div>
+        
+        <div class="product-card fade-in delay-1">
+          <div class="product-badge">NUOVA CATEGORIA</div>
+          <div class="product-icon">
+            <i class="fas fa-tshirt"></i>
+          </div>
+          <h3 class="product-title">Moda & Accessori</h3>
+          <div class="product-salary">
+            <i class="fas fa-money-bill-wave"></i>
+            <span>€15-€30/prodotto</span>
+          </div>
+          <div class="product-features">
+            <div class="product-feature">
+              <i class="fas fa-clock"></i>
+              <span>Test di 1-3 giorni</span>
+            </div>
+            <div class="product-feature">
+              <i class="fas fa-camera"></i>
+              <span>Foto richieste</span>
+            </div>
+            <div class="product-feature">
+              <i class="fas fa-bolt"></i>
+              <span>Pagamenti veloci</span>
+            </div>
+          </div>
+          <button class="btn btn-primary btn-block open-modal-btn">
+            Iscriviti Ora
+          </button>
+        </div>
+        
+        <div class="product-card fade-in delay-2">
+          <div class="product-badge">BONUS €20</div>
+          <div class="product-icon">
+            <i class="fas fa-home"></i>
+          </div>
+          <h3 class="product-title">Casa & Giardino</h3>
+          <div class="product-salary">
+            <i class="fas fa-money-bill-wave"></i>
+            <span>€20-€40/prodotto</span>
+          </div>
+          <div class="product-features">
+            <div class="product-feature">
+              <i class="fas fa-clock"></i>
+              <span>Test di 5-10 giorni</span>
+            </div>
+            <div class="product-feature">
+              <i class="fas fa-video"></i>
+              <span>Video recensioni</span>
+            </div>
+            <div class="product-feature">
+              <i class="fas fa-gift"></i>
+              <span>Bonus €20 per iniziare</span>
+            </div>
+          </div>
+          <button class="btn btn-primary btn-block open-modal-btn">
+            Iscriviti Ora
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Section -->
+  <section class="section stats-section">
+    <div class="container">
+      <div class="stats-grid fade-in">
+        <div class="stat-item">
+          <div class="stat-number">5,000+</div>
+          <div class="stat-label">Tester Attivi in Italia</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">€750K+</div>
+          <div class="stat-label">Guadagnati dai Tester</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">97%</div>
+          <div class="stat-label">Soddisfazione</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">24/7</div>
+          <div class="stat-label">Supporto WhatsApp</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="section how-it-works" id="kif">
+    <div class="container">
+      <div class="section-header fade-in">
+        <h2 class="section-title">Come Funziona?</h2>
+        <p class="section-subtitle">
+          3 semplici passi per iniziare a testare prodotti e guadagnare
+        </p>
+      </div>
+      
+      <div class="steps-grid">
+        <div class="step-card fade-in">
+          <div class="step-number">1</div>
+          <h3 class="step-title">Iscriviti Gratis</h3>
+          <p class="step-description">
+            Compila il form di iscrizione. Ci vogliono solo 30 secondi!
+          </p>
+        </div>
+        
+        <div class="step-card fade-in delay-1">
+          <div class="step-number">2</div>
+          <h3 class="step-title">Ricevi Prodotti</h3>
+          <p class="step-description">
+            Scegli tra i prodotti disponibili e ricevili GRATIS a casa tua.
+          </p>
+        </div>
+        
+        <div class="step-card fade-in delay-2">
+          <div class="step-number">3</div>
+          <h3 class="step-title">Testa & Guadagna</h3>
+          <p class="step-description">
+            Testa il prodotto, scrivi una recensione onesta e ricevi il pagamento.
+          </p>
+        </div>
+      </div>
+      
+      <div class="text-center mt-4">
+        <button class="btn btn-primary btn-lg open-modal-btn">
+          <i class="fas fa-play-circle btn-icon"></i>
+          Inizia Ora Gratis
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="section testimonials-section" id="testimonials">
+    <div class="container">
+      <div class="section-header fade-in">
+        <h2 class="section-title">Cosa Dicono i Nostri Tester</h2>
+      </div>
+      
+      <div class="testimonials-slider">
+        <div class="testimonial-card fade-in">
+          <div class="testimonial-content">
+            "Ero scettico all'inizio, ma ora testare prodotti è diventato il mio lavoro part-time preferito. La scorsa settimana ho testato un paio di cuffie wireless da €120 che ho tenuto, più €25 di compenso. Il supporto su WhatsApp è immediato!"
+          </div>
+          <div class="testimonial-author">
+            <div class="author-avatar">M</div>
+            <div class="author-info">
+              <h4>Marco Verdi</h4>
+              <p>Tester da 8 mesi - Milano</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section faq-section" id="faq">
+    <div class="container">
+      <div class="section-header fade-in">
+        <h2 class="section-title">Domande Frequenti</h2>
+      </div>
+      
+      <div class="faq-grid">
+        <div class="faq-item fade-in">
+          <div class="faq-question">
+            <span>C'è qualche costo per iscriversi?</span>
+            <i class="fas fa-chevron-down faq-icon"></i>
+          </div>
+          <div class="faq-answer">
+            <p><strong>ASSOLUTAMENTE NO!</strong> L'iscrizione è 100% gratuita. Non paghi mai per iscriverti o per ricevere prodotti da testare.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item fade-in">
+          <div class="faq-question">
+            <span>Quanto tempo ci vuole per essere pagati?</span>
+            <i class="fas fa-chevron-down faq-icon"></i>
+          </div>
+          <div class="faq-answer">
+            <p><strong>Entro 24-48 ore</strong> dall'approvazione della tua recensione. I pagamenti avvengono tramite bonifico bancario o PayPal.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item fade-in">
+          <div class="faq-question">
+            <span>Di cosa ho bisogno per iniziare?</span>
+            <i class="fas fa-chevron-down faq-icon"></i>
+          </div>
+          <div class="faq-answer">
+            <p><strong>Solo smartphone e connessione internet!</strong> Puoi fare tutto dal tuo telefono. Ricevi i prodotti a casa tua.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="text-center mt-4">
+        <button class="btn btn-primary btn-lg open-modal-btn">
+          <i class="fas fa-question-circle btn-icon"></i>
+          Hai Altre Domande? Iscriviti Ora!
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="section cta-section" id="applika">
+    <div class="container">
+      <div class="section-header fade-in">
+        <h2 class="cta-title">Pronto per Iniziare?</h2>
+        <p class="cta-subtitle">
+          Unisciti a migliaia di tester italiani che ricevono prodotti GRATIS e guadagnano extra ogni giorno.
+        </p>
+        <button class="btn btn-primary btn-lg open-modal-btn mt-3">
+          <i class="fas fa-rocket btn-icon"></i>
+          Iscriviti Ora - Posti Limitati!
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="#" class="footer-logo">ProdottoTest.it</a>
+          <p class="footer-description">
+            Aiutiamo gli italiani a ricevere prodotti GRATIS e guadagnare scrivendo recensioni oneste.
+            100% gratuito, 100% sicuro, solo per residenti in Italia.
+          </p>
+        </div>
+        
+        <div class="footer-links">
+          <h3>Link Utili</h3>
+          <ul>
+            <li><a href="#prodotti">Categorie Prodotti</a></li>
+            <li><a href="#kif">Come Funziona</a></li>
+            <li><a href="#testimonials">Recensioni</a></li>
+            <li><a href="#faq">Domande Frequenti</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-links">
+          <h3>Legale</h3>
+          <ul>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="terms.html">Termini di Servizio</a></li>
+            <li><a href="cookie.html">Cookie Policy</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>© 2024 ProdottoTest.it. Tutti i diritti riservati. Servizio disponibile solo in Italia.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Modal Form -->
+  <div class="modal" id="modalForm">
+    <div class="modal-content">
+      <button class="modal-close" id="modalCloseBtn">&times;</button>
+      <div class="form-header">
+        <h2 class="form-title">Iscriviti Ora e Inizia a Testare!</h2>
+        <p class="form-subtitle">Compila il form qui sotto e ti contatteremo su WhatsApp entro 30 minuti</p>
+      </div>
+      
+      <div class="form-step">
+        <div class="step-item active"></div>
+        <div class="step-item"></div>
+        <div class="step-item"></div>
+      </div>
+      
+      <form id="modalApplicationForm">
+        <div class="form-group">
+          <label for="modal-name" class="form-label">
+            Nome e Cognome <span class="required">*</span>
+          </label>
+          <input type="text" id="modal-name" class="form-control" placeholder="es. Mario Rossi" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="modal-phone" class="form-label">
+            Numero WhatsApp <span class="required">*</span>
+          </label>
+          <div class="phone-group">
+            <div class="country-code">
+              <img src="https://flagcdn.com/w20/it.png" alt="Bandiera Italia" width="20" height="15">
+              <span>+39</span>
+            </div>
+            <input type="tel" id="modal-phone" class="form-control phone-input" placeholder="es. 3401234567" required>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label for="modal-age" class="form-label">
+            Età <span class="required">*</span>
+          </label>
+          <input type="number" id="modal-age" class="form-control" placeholder="es. 25" min="18" max="99" required>
+        </div>
+        
+        <div class="form-check">
+          <input type="checkbox" id="modal-consent" class="form-check-input" required checked>
+          <label for="modal-consent" class="form-check-label">
+            Accetto l'<a href="privacy.html" target="_blank">Informativa sulla Privacy</a> e 
+            i <a href="terms.html" target="_blank">Termini di Servizio</a>.
+          </label>
+        </div>
+        
+        <button type="submit" class="btn btn-primary btn-block">
+          <i class="fas fa-paper-plane btn-icon"></i>
+          Invia Iscrizione
+        </button>
+        
+        <div class="security-badge">
+          <i class="fas fa-lock security-icon"></i>
+          <span>I tuoi dati sono 100% sicuri e protetti</span>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Success Modal -->
+  <div class="modal" id="successModal">
+    <div class="modal-content">
+      <button class="modal-close" id="successCloseBtn">&times;</button>
+      <h3 class="modal-title">🎉 Congratulazioni! Iscrizione Completata!</h3>
+      <p class="modal-message">
+        La tua iscrizione è stata inviata con successo! Ora ti contatteremo su WhatsApp entro 30 minuti per darti accesso alla piattaforma e mostrarti i primi prodotti disponibili.
+      </p>
+      <button class="btn btn-primary btn-block" id="successOkBtn">
+        <i class="fas fa-whatsapp btn-icon"></i>
+        OK - Vai su WhatsApp
+      </button>
+    </div>
+  </div>
+
+  <!-- Age Warning Modal -->
+  <div class="modal age-warning-modal" id="ageWarningModal">
+    <div class="modal-content">
+      <button class="modal-close" id="ageWarningCloseBtn">&times;</button>
+      <h3 class="modal-title">⚠️ Requisito di Età</h3>
+      <p class="modal-message">
+        Ci dispiace, i nostri servizi sono disponibili solo per individui di 18 anni o più.
+      </p>
+      <button class="btn btn-primary btn-block" id="ageWarningOkBtn">
+        Ho Capito
+      </button>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // WhatsApp configuration - Italian numbers
+      const whatsappAccounts = [ 
+        "393456789012",
+        "393987654321"
+      ];
+      
+      // Select random WhatsApp account
+      const randomAccount = whatsappAccounts[Math.floor(Math.random() * whatsappAccounts.length)];
+      const whatsappMessage = encodeURIComponent("Ciao! Mi sono appena iscritto a ProdottoTest.it e sono interessato a testare prodotti gratuiti. Potete aiutarmi a iniziare?");
+      const whatsappLink = `https://wa.me/${randomAccount}?text=${whatsappMessage}`;
+      
+      // Elements
+      const applicationForm = document.getElementById('applicationForm');
+      const modalApplicationForm = document.getElementById('modalApplicationForm');
+      const modalForm = document.getElementById('modalForm');
+      const successModal = document.getElementById('successModal');
+      const ageWarningModal = document.getElementById('ageWarningModal');
+      const openModalBtns = document.querySelectorAll('.open-modal-btn');
+      const modalCloseBtn = document.getElementById('modalCloseBtn');
+      const successCloseBtn = document.getElementById('successCloseBtn');
+      const successOkBtn = document.getElementById('successOkBtn');
+      const ageWarningCloseBtn = document.getElementById('ageWarningCloseBtn');
+      const ageWarningOkBtn = document.getElementById('ageWarningOkBtn');
+      const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+      const navLinks = document.querySelector('.nav-links');
+      const faqItems = document.querySelectorAll('.faq-item');
+      
+      // Mobile menu toggle
+      mobileMenuBtn.addEventListener('click', function() {
+        if (navLinks.style.display === 'flex') {
+          navLinks.style.display = 'none';
+        } else {
+          navLinks.style.display = 'flex';
+          navLinks.style.flexDirection = 'column';
+          navLinks.style.position = 'absolute';
+          navLinks.style.top = '100%';
+          navLinks.style.left = '0';
+          navLinks.style.right = '0';
+          navLinks.style.background = 'white';
+          navLinks.style.padding = '1rem';
+          navLinks.style.boxShadow = '0 4px 6px rgba(0,0,0,0.1)';
+          navLinks.style.gap = '1rem';
+        }
+      });
+      
+      // FAQ toggle
+      faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        question.addEventListener('click', () => {
+          item.classList.toggle('active');
+        });
+      });
+      
+      // Open modal buttons
+      openModalBtns.forEach(btn => {
+        btn.addEventListener('click', function(e) {
+          e.preventDefault();
+          modalForm.classList.add('active');
+        });
+      });
+      
+      // Close modal buttons
+      modalCloseBtn.addEventListener('click', function() {
+        modalForm.classList.remove('active');
+      });
+      
+      successCloseBtn.addEventListener('click', function() {
+        successModal.classList.remove('active');
+      });
+      
+      ageWarningCloseBtn.addEventListener('click', function() {
+        ageWarningModal.classList.remove('active');
+      });
+      
+      ageWarningOkBtn.addEventListener('click', function() {
+        ageWarningModal.classList.remove('active');
+      });
+      
+      // Success modal OK button
+      successOkBtn.addEventListener('click', function() {
+        successModal.classList.remove('active');
+        // Send conversion event and open WhatsApp
+        gtag_report_conversion(whatsappLink);
+      });
+      
+      // Close modals on background click
+      [modalForm, successModal, ageWarningModal].forEach(modal => {
+        modal.addEventListener('click', function(e) {
+          if (e.target === this) {
+            this.classList.remove('active');
+          }
+        });
+      });
+      
+      // Form validation function
+      function validateForm(form) {
+        const name = form.querySelector('input[type="text"]').value.trim();
+        const phone = form.querySelector('input[type="tel"]').value.trim();
+        const age = form.querySelector('input[type="number"]').value;
+        const consent = form.querySelector('input[type="checkbox"]').checked;
+        
+        // Reset styles
+        const inputs = form.querySelectorAll('input');
+        inputs.forEach(input => {
+          input.style.borderColor = '';
+        });
+        form.querySelector('.form-check-label').style.color = '';
+        
+        // Validate name
+        if (!name) {
+          form.querySelector('input[type="text"]').style.borderColor = 'var(--primary)';
+          return false;
+        }
+        
+        // Validate phone (Italy mobile: 10 digits, can start with 3)
+        const phoneRegex = /^[3][0-9]{9}$/;
+        if (!phoneRegex.test(phone)) {
+          form.querySelector('input[type="tel"]').style.borderColor = 'var(--primary)';
+          return false;
+        }
+        
+        // Validate age
+        const ageNum = parseInt(age);
+        if (!age || ageNum < 18) {
+          form.querySelector('input[type="number"]').style.borderColor = 'var(--primary)';
+          ageWarningModal.classList.add('active');
+          return false;
+        }
+        
+        // Validate consent
+        if (!consent) {
+          form.querySelector('.form-check-label').style.color = 'var(--primary)';
+          return false;
+        }
+        
+        return true;
+      }
+      
+      // Form submission handler
+      function handleFormSubmit(form, isModalForm = false) {
+        if (validateForm(form)) {
+          // Send Google Analytics event
+          try {
+            gtag('event', 'submit_form', {
+              event_category: 'lead',
+              event_label: isModalForm ? 'Modal Form Submission' : 'Main Form Submission'
+            });
+            
+            // Send conversion event
+            gtag_report_conversion(whatsappLink);
+          } catch (error) {
+            console.log('Google Analytics error:', error);
+            // Fallback: open WhatsApp after delay
+            setTimeout(() => {
+              window.open(whatsappLink, '_blank');
+            }, 300);
+          }
+          
+          // Show success modal
+          successModal.classList.add('active');
+          
+          // Close modal form if it was modal
+          if (isModalForm) {
+            modalForm.classList.remove('active');
+          }
+          
+          return true;
+        }
+        return false;
+      }
+      
+      // Main form submission
+      if (applicationForm) {
+        applicationForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+          handleFormSubmit(this, false);
+        });
+      }
+      
+      // Modal form submission
+      if (modalApplicationForm) {
+        modalApplicationForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+          handleFormSubmit(this, true);
+        });
+      }
+      
+      // Input restrictions
+      function setupInputRestrictions() {
+        // Phone inputs
+        const phoneInputs = document.querySelectorAll('input[type="tel"]');
+        phoneInputs.forEach(input => {
+          input.addEventListener('input', function() {
+            this.value = this.value.replace(/[^0-9]/g, '');
+            if (this.value.length > 10) {
+              this.value = this.value.slice(0, 10);
+            }
+          });
+          
+          input.addEventListener('paste', function(e) {
+            e.preventDefault();
+            const pasteData = e.clipboardData.getData('text');
+            const numbersOnly = pasteData.replace(/[^0-9]/g, '').slice(0, 10);
+            this.value = numbersOnly;
+          });
+        });
+        
+        // Age inputs
+        const ageInputs = document.querySelectorAll('input[type="number"]');
+        ageInputs.forEach(input => {
+          input.addEventListener('input', function() {
+            this.value = this.value.replace(/[^0-9]/g, '');
+            if (this.value.length > 2) {
+              this.value = this.value.slice(0, 2);
+            }
+          });
+          
+          input.addEventListener('paste', function(e) {
+            e.preventDefault();
+            const pasteData = e.clipboardData.getData('text');
+            const numbersOnly = pasteData.replace(/[^0-9]/g, '').slice(0, 2);
+            this.value = numbersOnly;
+          });
+        });
+      }
+      
+      // Fade in animations
+      const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+      };
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('fade-in');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+      
+      // Observe elements with fade-in class
+      document.querySelectorAll('.fade-in').forEach(el => {
+        observer.observe(el);
+      });
+      
+      // Initialize
+      setupInputRestrictions();
+      
+      // Send page view event
+      gtag('event', 'page_view', {
+        page_title: 'ProdottoTest Italia - Test Prodotti Gratis',
+        page_location: window.location.href
+      });
+      
+      // Send form view event for modal
+      setTimeout(() => {
+        gtag('event', 'view_form', {
+          event_category: 'engagement',
+          event_label: 'Modal Form View'
+        });
+      }, 1000);
+    });
+  </script>
+</body>
+</html>
