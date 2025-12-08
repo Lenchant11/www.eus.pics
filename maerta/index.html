@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="mt">
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Xogħol Remot Malta | Opportunitajiet Flessibbli mid-Dar</title>
-  <meta name="description" content="Esplora l-aqwa opportunitajiet ta' xogħol remot f'Malta. Aħdem minn darrek b'sigħat flessibbli u tħallas regolari. Applika issa!" />
+  <title>Remote Work Malta | Flexible Home-Based Opportunities</title>
+  <meta name="description" content="Discover top remote work opportunities in Malta. Work from home with flexible hours and regular payments. Apply now!" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500&display=swap" rel="stylesheet">
@@ -209,6 +209,50 @@
       margin: 0 auto;
     }
     
+    /* === LANGUAGE SWITCHER === */
+    .language-switcher {
+      position: absolute;
+      top: 50%;
+      right: 1rem;
+      transform: translateY(-50%);
+      display: flex;
+      gap: 0.5rem;
+      z-index: 1001;
+    }
+    
+    @media (max-width: 1024px) {
+      .language-switcher {
+        position: static;
+        transform: none;
+        justify-content: center;
+        margin-top: 0.5rem;
+        order: 3;
+        width: 100%;
+      }
+    }
+    
+    .lang-btn {
+      padding: 0.375rem 0.75rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.875rem;
+      font-weight: 600;
+      background: white;
+      color: var(--primary);
+      border: 2px solid var(--primary);
+      cursor: pointer;
+      transition: var(--transition-fast);
+    }
+    
+    .lang-btn:hover {
+      background: var(--primary);
+      color: white;
+    }
+    
+    .lang-btn.active {
+      background: var(--primary);
+      color: white;
+    }
+    
     /* === BUTTONS === */
     .btn {
       display: inline-flex;
@@ -275,6 +319,13 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      position: relative;
+    }
+    
+    @media (max-width: 1024px) {
+      .nav {
+        flex-wrap: wrap;
+      }
     }
     
     .logo {
@@ -770,6 +821,12 @@
       }
     }
     
+    @media (min-width: 1024px) {
+      .companies-grid {
+        grid-template-columns: repeat(5, 1fr);
+      }
+    }
+    
     .company-card {
       background: white;
       padding: 1.5rem 1rem;
@@ -790,14 +847,17 @@
       width: 60px;
       height: 60px;
       margin: 0 auto 1rem;
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
-      border-radius: var(--radius-md);
       display: flex;
       align-items: center;
       justify-content: center;
-      color: white;
-      font-weight: 700;
-      font-size: 1.25rem;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+    }
+    
+    .company-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
     }
     
     @media (min-width: 768px) {
@@ -1023,6 +1083,20 @@
       max-width: 800px;
       margin: var(--space-md) auto 0;
       position: relative;
+      overflow: hidden;
+      height: 220px;
+    }
+    
+    .testimonials-track {
+      display: flex;
+      transition: transform 0.5s ease;
+      width: 500%;
+    }
+    
+    .testimonial-slide {
+      flex: 0 0 20%;
+      padding: 0 0.5rem;
+      box-sizing: border-box;
     }
     
     .testimonial-card {
@@ -1032,6 +1106,7 @@
       box-shadow: var(--shadow-md);
       border: 1px solid var(--gray-200);
       position: relative;
+      height: 100%;
     }
     
     .testimonial-card::before {
@@ -1082,6 +1157,29 @@
     .author-info p {
       color: var(--gray-600);
       font-size: 0.85rem;
+    }
+    
+    .slider-dots {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-top: 1.5rem;
+    }
+    
+    .slider-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--gray-300);
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      transition: var(--transition-fast);
+    }
+    
+    .slider-dot.active {
+      background: var(--primary);
+      transform: scale(1.2);
     }
     
     /* === FAQ === */
@@ -1417,17 +1515,22 @@
           <div class="logo-icon">
             <i class="fas fa-laptop-house"></i>
           </div>
-          <span>XogħolRemot.mt</span>
+          <span class="logo-text">RemoteWork.mt</span>
         </a>
         
         <div class="nav-links">
-          <a href="#opportunitajiet" class="nav-link">Opportunitajiet</a>
-          <a href="#kif" class="nav-link">Kif Taħdem</a>
-          <a href="#testimonials" class="nav-link">Testimonjali</a>
-          <a href="#faq" class="nav-link">Mistoqsijiet</a>
-          <a href="#" class="btn btn-primary nav-cta open-modal-btn">
-            Applika Issa
+          <a href="#opportunities" class="nav-link" data-i18n="nav.opportunities">Opportunities</a>
+          <a href="#how" class="nav-link" data-i18n="nav.how">How It Works</a>
+          <a href="#testimonials" class="nav-link" data-i18n="nav.testimonials">Testimonials</a>
+          <a href="#faq" class="nav-link" data-i18n="nav.faq">FAQ</a>
+          <a href="#" class="btn btn-primary nav-cta open-modal-btn" data-i18n="nav.apply">
+            Apply Now
           </a>
+        </div>
+        
+        <div class="language-switcher">
+          <button class="lang-btn" data-lang="en">EN</button>
+          <button class="lang-btn" data-lang="mt">MT</button>
         </div>
         
         <button class="mobile-menu-btn" id="mobileMenuBtn">
@@ -1437,33 +1540,33 @@
     </div>
   </header>
 
-  <!-- Urgency Bar - Fixed vertical centering -->
+  <!-- Urgency Bar -->
   <div class="urgency-bar">
     <div class="container urgency-container">
       <div class="urgency-scroll">
         <div class="urgency-content">
           <div class="urgency-item">
             <span class="urgency-icon">🔥</span>
-            <span>MARIA T. ĠABLET €120 illum biss!</span>
+            <span data-i18n="urgency.item1">MARIA T. EARNED €120 TODAY!</span>
           </div>
           <div class="urgency-item">
             <span class="urgency-icon">🚀</span>
-            <span>2 POSTIJIET BISS FADLILNA!</span>
+            <span data-i18n="urgency.item2">ONLY 12 POSITIONS LEFT!</span>
           </div>
           <div class="urgency-item">
             <span class="urgency-icon">💰</span>
-            <span>GIOVANNI S. ĠABEL €450 fil-ġimgħa!</span>
+            <span data-i18n="urgency.item3">GIOVANNI S. EARNED €450 THIS WEEK!</span>
           </div>
           <div class="urgency-item">
             <span class="urgency-icon">⏰</span>
-            <span>OFFERTA SPEĊJALI: €50 bonus!</span>
+            <span data-i18n="urgency.item4">SPECIAL OFFER: €50 BONUS!</span>
           </div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Hero Section with Background Image -->
+  <!-- Hero Section -->
   <section class="hero" id="top">
     <div class="hero-bg"></div>
     <div class="container">
@@ -1471,27 +1574,27 @@
         <div class="hero-content fade-in">
           <div class="hero-badge">
             <i class="fas fa-bolt"></i>
-            <span>OPPORTUNITÀ ĠDIDA DISPONIBBLI</span>
+            <span data-i18n="hero.badge">NEW OPPORTUNITY AVAILABLE</span>
           </div>
           
           <h1 class="hero-title">
-            Skopri Opportunitajiet ta' <span class="text-gradient">Xogħol Remot f'Malta</span>
+            <span data-i18n="hero.title">Discover High-Paying</span> 
+            <span class="text-gradient" data-i18n="hero.titleHighlight">Remote Work in Malta</span>
           </h1>
           
-          <p class="hero-subtitle">
-            Aħdem mid-dar tiegħek, issib il-flessibilità li trid, u tħallas regolari.
-            Bla esperjenza meħtieġa.
+          <p class="hero-subtitle" data-i18n="hero.subtitle">
+            Work from home, set your own hours, get paid daily. No experience needed - just a smartphone!
           </p>
           
-          <!-- Mobile CTA Button - Moved Up -->
+          <!-- Mobile CTA Button -->
           <div class="mobile-cta">
             <button class="btn btn-primary btn-lg btn-block open-modal-btn mb-2">
               <i class="fas fa-rocket btn-icon"></i>
-              Ibda Issa - Bla Ħlas!
+              <span data-i18n="hero.cta">Start Now - It's Free!</span>
             </button>
             <p style="color: var(--gray-600); font-size: 0.85rem;">
               <i class="fas fa-shield-alt text-primary"></i>
-              100% Sigur
+              <span data-i18n="hero.secure">100% Secure & Verified</span>
             </p>
           </div>
           
@@ -1501,8 +1604,8 @@
                 <i class="fas fa-euro-sign"></i>
               </div>
               <div class="feature-text">
-                <strong>Tħallas Regolari</strong>
-                <p>€20-€100 kuljum</p>
+                <strong data-i18n="hero.feature1.title">Daily Payments</strong>
+                <p data-i18n="hero.feature1.desc">€25-€125 per day</p>
               </div>
             </div>
             <div class="feature-item">
@@ -1510,8 +1613,8 @@
                 <i class="fas fa-clock"></i>
               </div>
               <div class="feature-text">
-                <strong>Sigħat Flessibbli</strong>
-                <p>2-6 sigħat kuljum</p>
+                <strong data-i18n="hero.feature2.title">Flexible Hours</strong>
+                <p data-i18n="hero.feature2.desc">2-8 hours daily</p>
               </div>
             </div>
             <div class="feature-item">
@@ -1519,8 +1622,8 @@
                 <i class="fas fa-home"></i>
               </div>
               <div class="feature-text">
-                <strong>Mid-Dar Kollha</strong>
-                <p>Bla commuting</p>
+                <strong data-i18n="hero.feature3.title">100% Remote</strong>
+                <p data-i18n="hero.feature3.desc">Work from anywhere</p>
               </div>
             </div>
             <div class="feature-item">
@@ -1528,18 +1631,18 @@
                 <i class="fas fa-calendar-check"></i>
               </div>
               <div class="feature-text">
-                <strong>Tibda Illum</strong>
-                <p>Bla intervisti</p>
+                <strong data-i18n="hero.feature4.title">Start Today</strong>
+                <p data-i18n="hero.feature4.desc">No interviews required</p>
               </div>
             </div>
           </div>
         </div>
         
-        <!-- Hero Form - Now visible on mobile too -->
+        <!-- Hero Form -->
         <div class="hero-form form-card fade-in delay-1">
           <div class="form-header">
-            <h2 class="form-title">Applika Issa u Tibda Taħdem!</h2>
-            <p class="form-subtitle">Imla l-formola hawn taħt u aħna nikkuntattjawk fi żmien 30 minuta</p>
+            <h2 class="form-title" data-i18n="form.title">Apply Now & Start Working!</h2>
+            <p class="form-subtitle" data-i18n="form.subtitle">Fill the form below and we'll contact you within 30 minutes</p>
           </div>
           
           <div class="form-step">
@@ -1551,14 +1654,14 @@
           <form id="applicationForm">
             <div class="form-group">
               <label for="name" class="form-label">
-                Isem u Kujam <span class="required">*</span>
+                <span data-i18n="form.name">Full Name</span> <span class="required">*</span>
               </label>
               <input type="text" id="name" class="form-control" placeholder="e.g. Mario Borg" required>
             </div>
             
             <div class="form-group">
               <label for="phone" class="form-label">
-                Numru WhatsApp <span class="required">*</span>
+                <span data-i18n="form.phone">WhatsApp Number</span> <span class="required">*</span>
               </label>
               <div class="phone-group">
                 <div class="country-code">
@@ -1571,7 +1674,7 @@
             
             <div class="form-group">
               <label for="age" class="form-label">
-                Età <span class="required">*</span>
+                <span data-i18n="form.age">Age</span> <span class="required">*</span>
               </label>
               <input type="number" id="age" class="form-control" placeholder="e.g. 25" min="18" max="99" required>
             </div>
@@ -1579,19 +1682,21 @@
             <div class="form-check">
               <input type="checkbox" id="consent" class="form-check-input" required checked>
               <label for="consent" class="form-check-label">
-                Naċċetta l-<a href="privacy.html" target="_blank">Politika tal-Privatezza</a> u 
-                l-<a href="terms.html" target="_blank">Termini tas-Servizz</a>.
+                <span data-i18n="form.consent">I accept the</span> 
+                <a href="privacy.html" target="_blank" data-i18n="form.privacy">Privacy Policy</a> 
+                <span data-i18n="form.and">and</span> 
+                <a href="terms.html" target="_blank" data-i18n="form.terms">Terms of Service</a>.
               </label>
             </div>
             
             <button type="submit" class="btn btn-primary btn-block">
               <i class="fas fa-paper-plane btn-icon"></i>
-              Ibgħat l-Applikazzjoni
+              <span data-i18n="form.submit">Submit Application</span>
             </button>
             
             <div class="security-badge">
               <i class="fas fa-lock security-icon"></i>
-              <span>L-informazzjoni tiegħek hija 100% sigura</span>
+              <span data-i18n="form.secure">Your information is 100% secure</span>
             </div>
           </form>
         </div>
@@ -1603,126 +1708,142 @@
   <section class="section companies-section">
     <div class="container">
       <div class="section-header fade-in">
-        <h2 class="section-title">Naħdmu mal-Aqwa Kumpaniji</h2>
-        <p class="section-subtitle">
-          Opportunitajiet ma' kumpaniji apprezzati f'Malta
+        <h2 class="section-title" data-i18n="companies.title">Partnered with Top Companies</h2>
+        <p class="section-subtitle" data-i18n="companies.subtitle">
+          Genuine opportunities with reputable companies in Malta
         </p>
       </div>
       
       <div class="companies-grid">
         <div class="company-card fade-in">
-          <div class="company-logo">B</div>
-          <h3 class="company-name">Betsson</h3>
-          <p class="company-jobs">15 pożizzjoni</p>
+          <div class="company-logo">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon">
+          </div>
+          <h3 class="company-name">Amazon</h3>
+          <p class="company-jobs" data-i18n="companies.jobs1">18 positions available</p>
         </div>
         
         <div class="company-card fade-in delay-1">
-          <div class="company-logo">T</div>
-          <h3 class="company-name">Tipico</h3>
-          <p class="company-jobs">8 pożizzjonijiet</p>
+          <div class="company-logo">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google">
+          </div>
+          <h3 class="company-name">Google</h3>
+          <p class="company-jobs" data-i18n="companies.jobs2">12 remote positions</p>
         </div>
         
         <div class="company-card fade-in delay-2">
-          <div class="company-logo">C</div>
-          <h3 class="company-name">Casumo</h3>
-          <p class="company-jobs">12 pożizzjoni</p>
+          <div class="company-logo">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="Netflix">
+          </div>
+          <h3 class="company-name">Netflix</h3>
+          <p class="company-jobs" data-i18n="companies.jobs3">8 opportunities</p>
         </div>
         
         <div class="company-card fade-in delay-3">
-          <div class="company-logo">L</div>
-          <h3 class="company-name">LeoVegas</h3>
-          <p class="company-jobs">10 opportunitajiet</p>
+          <div class="company-logo">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/0/01/Betsson_logo.svg" alt="Betsson">
+          </div>
+          <h3 class="company-name">Betsson</h3>
+          <p class="company-jobs" data-i18n="companies.jobs4">15 positions</p>
+        </div>
+        
+        <div class="company-card fade-in">
+          <div class="company-logo">
+            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/d/d3/Starbucks_Corporation_Logo_2011.svg/1024px-Starbucks_Corporation_Logo_2011.svg.png" alt="Starbucks" style="padding: 5px;">
+          </div>
+          <h3 class="company-name">Starbucks</h3>
+          <p class="company-jobs" data-i18n="companies.jobs5">10 opportunities</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Jobs Section -->
-  <section class="section jobs-section" id="opportunitajiet">
+  <section class="section jobs-section" id="opportunities">
     <div class="container">
       <div class="section-header fade-in">
-        <h2 class="section-title">Opportunitajiet ta' Xogħol</h2>
-        <p class="section-subtitle">
-          Agħżel opportunitajiet li jaqblu miegħek
+        <h2 class="section-title" data-i18n="jobs.title">Available Positions</h2>
+        <p class="section-subtitle" data-i18n="jobs.subtitle">
+          Choose opportunities that match your schedule
         </p>
       </div>
       
       <div class="jobs-grid">
         <div class="job-card fade-in">
-          <div class="job-badge">POPOLARI</div>
-          <h3 class="job-title">Support Online</h3>
+          <div class="job-badge" data-i18n="jobs.popular">MOST POPULAR</div>
+          <h3 class="job-title" data-i18n="jobs.job1.title">Online Customer Support</h3>
           <div class="job-salary">
             <i class="fas fa-money-bill-wave"></i>
-            <span>Sa €100 kuljum</span>
+            <span data-i18n="jobs.job1.salary">Up to €125 daily</span>
           </div>
           <div class="job-features">
             <div class="job-feature">
               <i class="fas fa-clock"></i>
-              <span>2-4 sigħat flessibbli</span>
+              <span data-i18n="jobs.job1.feature1">2-5 flexible hours</span>
             </div>
             <div class="job-feature">
               <i class="fas fa-home"></i>
-              <span>Mid-dar kollha</span>
+              <span data-i18n="jobs.job1.feature2">Completely remote</span>
             </div>
             <div class="job-feature">
               <i class="fas fa-graduation-cap"></i>
-              <span>Bla esperjenza</span>
+              <span data-i18n="jobs.job1.feature3">No experience needed</span>
             </div>
           </div>
-          <button class="btn btn-primary btn-block open-modal-btn">
-            Applika Issa
+          <button class="btn btn-primary btn-block open-modal-btn" data-i18n="jobs.apply">
+            Apply Now
           </button>
         </div>
         
         <div class="job-card fade-in delay-1">
-          <div class="job-badge">FLESSIBBLI</div>
-          <h3 class="job-title">Data Entry</h3>
+          <div class="job-badge" data-i18n="jobs.flexible">VERY FLEXIBLE</div>
+          <h3 class="job-title" data-i18n="jobs.job2.title">Data Entry Specialist</h3>
           <div class="job-salary">
             <i class="fas fa-money-bill-wave"></i>
-            <span>€20-€60 kuljum</span>
+            <span data-i18n="jobs.job2.salary">€25-€75 daily</span>
           </div>
           <div class="job-features">
             <div class="job-feature">
               <i class="fas fa-clock"></i>
-              <span>Meta trid</span>
+              <span data-i18n="jobs.job2.feature1">Work anytime</span>
             </div>
             <div class="job-feature">
               <i class="fas fa-mobile-alt"></i>
-              <span>Smartphone biss</span>
+              <span data-i18n="jobs.job2.feature2">Smartphone only</span>
             </div>
             <div class="job-feature">
               <i class="fas fa-bolt"></i>
-              <span>Pagamenti ta' kuljum</span>
+              <span data-i18n="jobs.job2.feature3">Daily payments</span>
             </div>
           </div>
-          <button class="btn btn-primary btn-block open-modal-btn">
-            Applika Issa
+          <button class="btn btn-primary btn-block open-modal-btn" data-i18n="jobs.apply">
+            Apply Now
           </button>
         </div>
         
         <div class="job-card fade-in delay-2">
-          <div class="job-badge">BONUS €50</div>
-          <h3 class="job-title">Verifikazzjoni Kontenut</h3>
+          <div class="job-badge" data-i18n="jobs.bonus">BONUS €50</div>
+          <h3 class="job-title" data-i18n="jobs.job3.title">Content Reviewer</h3>
           <div class="job-salary">
             <i class="fas fa-money-bill-wave"></i>
-            <span>€80-€120 kuljum</span>
+            <span data-i18n="jobs.job3.salary">€85-€145 daily</span>
           </div>
           <div class="job-features">
             <div class="job-feature">
               <i class="fas fa-clock"></i>
-              <span>3-6 sigħat kuljum</span>
+              <span data-i18n="jobs.job3.feature1">3-7 hours daily</span>
             </div>
             <div class="job-feature">
               <i class="fas fa-laptop"></i>
-              <span>Kompjuter jew tablet</span>
+              <span data-i18n="jobs.job3.feature2">Computer or tablet</span>
             </div>
             <div class="job-feature">
               <i class="fas fa-gift"></i>
-              <span>Bonus €50 għall-bidu</span>
+              <span data-i18n="jobs.job3.feature3">€50 welcome bonus</span>
             </div>
           </div>
-          <button class="btn btn-primary btn-block open-modal-btn">
-            Applika Issa
+          <button class="btn btn-primary btn-block open-modal-btn" data-i18n="jobs.apply">
+            Apply Now
           </button>
         </div>
       </div>
@@ -1734,57 +1855,57 @@
     <div class="container">
       <div class="stats-grid fade-in">
         <div class="stat-item">
-          <div class="stat-number">2,500+</div>
-          <div class="stat-label">Maltin Jaħdmu</div>
+          <div class="stat-number">3,200+</div>
+          <div class="stat-label" data-i18n="stats.maltese">Maltese Working</div>
         </div>
         <div class="stat-item">
-          <div class="stat-number">€450K+</div>
-          <div class="stat-label">Pagamenti</div>
+          <div class="stat-number">€680K+</div>
+          <div class="stat-label" data-i18n="stats.paid">Paid Out</div>
         </div>
         <div class="stat-item">
-          <div class="stat-number">98%</div>
-          <div class="stat-label">Sodisfazzjon</div>
+          <div class="stat-number">99%</div>
+          <div class="stat-label" data-i18n="stats.satisfaction">Satisfaction</div>
         </div>
         <div class="stat-item">
           <div class="stat-number">24/7</div>
-          <div class="stat-label">Appoġġ</div>
+          <div class="stat-label" data-i18n="stats.support">Support</div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- How It Works -->
-  <section class="section how-it-works" id="kif">
+  <section class="section how-it-works" id="how">
     <div class="container">
       <div class="section-header fade-in">
-        <h2 class="section-title">Kif Taħdem?</h2>
-        <p class="section-subtitle">
-          3 passi sempliċi biex tibda taħdem
+        <h2 class="section-title" data-i18n="how.title">How Does It Work?</h2>
+        <p class="section-subtitle" data-i18n="how.subtitle">
+          3 simple steps to start earning from home
         </p>
       </div>
       
       <div class="steps-grid">
         <div class="step-card fade-in">
           <div class="step-number">1</div>
-          <h3 class="step-title">Applika Online</h3>
-          <p class="step-description">
-            Imla l-formola sempliċi. Hu biss 30 sekonda!
+          <h3 class="step-title" data-i18n="how.step1.title">Quick Application</h3>
+          <p class="step-description" data-i18n="how.step1.desc">
+            Fill our simple form. Takes just 30 seconds!
           </p>
         </div>
         
         <div class="step-card fade-in delay-1">
           <div class="step-number">2</div>
-          <h3 class="step-title">WhatsApp</h3>
-          <p class="step-description">
-            Nikkuntattjawk fuq WhatsApp fi 30 minuta.
+          <h3 class="step-title" data-i18n="how.step2.title">WhatsApp Chat</h3>
+          <p class="step-description" data-i18n="how.step2.desc">
+            We contact you on WhatsApp within 30 minutes.
           </p>
         </div>
         
         <div class="step-card fade-in delay-2">
           <div class="step-number">3</div>
-          <h3 class="step-title">Ibda u Ħallas</h3>
-          <p class="step-description">
-            Ibda taħdem u tħallas regolari.
+          <h3 class="step-title" data-i18n="how.step3.title">Start & Get Paid</h3>
+          <p class="step-description" data-i18n="how.step3.desc">
+            Begin working immediately and get paid regularly.
           </p>
         </div>
       </div>
@@ -1792,7 +1913,7 @@
       <div class="text-center mt-4">
         <button class="btn btn-primary btn-lg open-modal-btn">
           <i class="fas fa-play-circle btn-icon"></i>
-          Ibda Issa
+          <span data-i18n="how.cta">Start Earning Now</span>
         </button>
       </div>
     </div>
@@ -1802,21 +1923,93 @@
   <section class="section testimonials-section" id="testimonials">
     <div class="container">
       <div class="section-header fade-in">
-        <h2 class="section-title">X'Jgħidu Maltin Oħra</h2>
+        <h2 class="section-title" data-i18n="testimonials.title">What Other Maltese Are Saying</h2>
       </div>
       
       <div class="testimonials-slider">
-        <div class="testimonial-card fade-in">
-          <div class="testimonial-content">
-            "Kont student u ma kontx naf kif naqla' flus. Illum naħdem 3 sigħat u naqla' €80-€100. L-aħjar ħaġa hija li naħdem meta rrid!"
-          </div>
-          <div class="testimonial-author">
-            <div class="author-avatar">M</div>
-            <div class="author-info">
-              <h4>Maria Tabone</h4>
-              <p>Student - Malta University</p>
+        <div class="testimonials-track" id="testimonialsTrack">
+          <div class="testimonial-slide">
+            <div class="testimonial-card">
+              <div class="testimonial-content" data-i18n="testimonials.testimonial1.text">
+                "I was a student struggling to make ends meet. Now I work 3 hours daily and earn €80-€100. The best part is I work whenever I want!"
+              </div>
+              <div class="testimonial-author">
+                <div class="author-avatar">M</div>
+                <div class="author-info">
+                  <h4 data-i18n="testimonials.testimonial1.name">Maria Tabone</h4>
+                  <p data-i18n="testimonials.testimonial1.role">Student - University of Malta</p>
+                </div>
+              </div>
             </div>
           </div>
+          
+          <div class="testimonial-slide">
+            <div class="testimonial-card">
+              <div class="testimonial-content" data-i18n="testimonials.testimonial2.text">
+                "As a mother of two, I needed flexible work. This platform changed my life! I earn €450 weekly working 4 hours daily from home."
+              </div>
+              <div class="testimonial-author">
+                <div class="author-avatar">S</div>
+                <div class="author-info">
+                  <h4 data-i18n="testimonials.testimonial2.name">Sarah Attard</h4>
+                  <p data-i18n="testimonials.testimonial2.role">Stay-at-home mother</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="testimonial-slide">
+            <div class="testimonial-card">
+              <div class="testimonial-content" data-i18n="testimonials.testimonial3.text">
+                "Lost my job during the pandemic. Found this opportunity and now earn more than before! The support team is incredibly helpful."
+              </div>
+              <div class="testimonial-author">
+                <div class="author-avatar">J</div>
+                <div class="author-info">
+                  <h4 data-i18n="testimonials.testimonial3.name">Joseph Borg</h4>
+                  <p data-i18n="testimonials.testimonial3.role">Former restaurant manager</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="testimonial-slide">
+            <div class="testimonial-card">
+              <div class="testimonial-content" data-i18n="testimonials.testimonial4.text">
+                "Perfect side hustle! I work 2 hours in the evening after my regular job. Extra €500-€600 monthly without stress."
+              </div>
+              <div class="testimonial-author">
+                <div class="author-avatar">D</div>
+                <div class="author-info">
+                  <h4 data-i18n="testimonials.testimonial4.name">David Camilleri</h4>
+                  <p data-i18n="testimonials.testimonial4.role">Office administrator</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="testimonial-slide">
+            <div class="testimonial-card">
+              <div class="testimonial-content" data-i18n="testimonials.testimonial5.text">
+                "I was skeptical at first, but after earning my first €100 in one day, I was convinced! The process is simple and payments are fast."
+              </div>
+              <div class="testimonial-author">
+                <div class="author-avatar">L</div>
+                <div class="author-info">
+                  <h4 data-i18n="testimonials.testimonial5.name">Lisa Vella</h4>
+                  <p data-i18n="testimonials.testimonial5.role">Part-time worker</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="slider-dots" id="sliderDots">
+          <button class="slider-dot active" data-slide="0"></button>
+          <button class="slider-dot" data-slide="1"></button>
+          <button class="slider-dot" data-slide="2"></button>
+          <button class="slider-dot" data-slide="3"></button>
+          <button class="slider-dot" data-slide="4"></button>
         </div>
       </div>
     </div>
@@ -1826,37 +2019,37 @@
   <section class="section faq-section" id="faq">
     <div class="container">
       <div class="section-header fade-in">
-        <h2 class="section-title">Mistoqsijiet Frekwenti</h2>
+        <h2 class="section-title" data-i18n="faq.title">Frequently Asked Questions</h2>
       </div>
       
       <div class="faq-grid">
         <div class="faq-item fade-in">
           <div class="faq-question">
-            <span>Hemm xi ħlas biex napplika?</span>
+            <span data-i18n="faq.q1">Is there any fee to apply?</span>
             <i class="fas fa-chevron-down faq-icon"></i>
           </div>
           <div class="faq-answer">
-            <p><strong>Assolutament LE!</strong> L-applikazzjoni hija 100% b'xejn. Ma taħdimx l-ebda ħlas.</p>
+            <p data-i18n="faq.a1"><strong>ABSOLUTELY NOT!</strong> The application is 100% free. We never charge any fees.</p>
           </div>
         </div>
         
         <div class="faq-item fade-in">
           <div class="faq-question">
-            <span>Kif malajr se nħallas?</span>
+            <span data-i18n="faq.q2">How fast will I get paid?</span>
             <i class="fas fa-chevron-down faq-icon"></i>
           </div>
           <div class="faq-answer">
-            <p><strong>Fi żmien 24-48 siegħa</strong> wara li tlestu x-xogħol.</p>
+            <p data-i18n="faq.a2"><strong>Within 24-48 hours</strong> after completing your work. Some tasks pay same-day!</p>
           </div>
         </div>
         
         <div class="faq-item fade-in">
           <div class="faq-question">
-            <span>X'għodda għandi bżonn?</span>
+            <span data-i18n="faq.q3">What tools do I need?</span>
             <i class="fas fa-chevron-down faq-icon"></i>
           </div>
           <div class="faq-answer">
-            <p><strong>Biss smartphone u internet!</strong> Dik hija.</p>
+            <p data-i18n="faq.a3"><strong>Just a smartphone and internet!</strong> That's all you need to get started.</p>
           </div>
         </div>
       </div>
@@ -1864,23 +2057,23 @@
       <div class="text-center mt-4">
         <button class="btn btn-primary btn-lg open-modal-btn">
           <i class="fas fa-question-circle btn-icon"></i>
-          Għandek Mistoqsija? Applika Issa!
+          <span data-i18n="faq.cta">Have Questions? Apply Now!</span>
         </button>
       </div>
     </div>
   </section>
 
   <!-- CTA Section -->
-  <section class="section cta-section" id="applika">
+  <section class="section cta-section" id="apply">
     <div class="container">
       <div class="section-header fade-in">
-        <h2 class="cta-title">Lest biex Tibda?</h2>
-        <p class="cta-subtitle">
-          Opportunitajiet ġodda kuljum. Applika illum!
+        <h2 class="cta-title" data-i18n="cta.title">Ready to Start?</h2>
+        <p class="cta-subtitle" data-i18n="cta.subtitle">
+          New opportunities daily. Apply today and change your life!
         </p>
         <button class="btn btn-primary btn-lg open-modal-btn mt-3">
           <i class="fas fa-rocket btn-icon"></i>
-          Applika Issa - Opportunitajiet Limitati!
+          <span data-i18n="cta.cta">Apply Now - Limited Positions!</span>
         </button>
       </div>
     </div>
@@ -1891,34 +2084,34 @@
     <div class="container">
       <div class="footer-grid">
         <div>
-          <a href="#" class="footer-logo">XogħolRemot.mt</a>
-          <p class="footer-description">
-            Ngħinu lil Maltin issibu opportunitajiet ta' xogħol remot.
-            100% b'xejn, 100% sigur.
+          <a href="#" class="footer-logo">RemoteWork.mt</a>
+          <p class="footer-description" data-i18n="footer.description">
+            Helping Maltese find genuine remote work opportunities.
+            100% free, 100% secure, 100% verified.
           </p>
         </div>
         
         <div class="footer-links">
-          <h3>Links</h3>
+          <h3 data-i18n="footer.links">Links</h3>
           <ul>
-            <li><a href="#opportunitajiet">Opportunitajiet</a></li>
-            <li><a href="#kif">Kif Taħdem</a></li>
-            <li><a href="#testimonials">Testimonjali</a></li>
-            <li><a href="#faq">Mistoqsijiet</a></li>
+            <li><a href="#opportunities" data-i18n="nav.opportunities">Opportunities</a></li>
+            <li><a href="#how" data-i18n="nav.how">How It Works</a></li>
+            <li><a href="#testimonials" data-i18n="nav.testimonials">Testimonials</a></li>
+            <li><a href="#faq" data-i18n="nav.faq">FAQ</a></li>
           </ul>
         </div>
         
         <div class="footer-links">
-          <h3>Legal</h3>
+          <h3 data-i18n="footer.legal">Legal</h3>
           <ul>
-            <li><a href="privacy.html">Privatezza</a></li>
-            <li><a href="terms.html">Termini</a></li>
+            <li><a href="privacy.html" data-i18n="form.privacy">Privacy Policy</a></li>
+            <li><a href="terms.html" data-i18n="form.terms">Terms of Service</a></li>
           </ul>
         </div>
       </div>
       
       <div class="footer-bottom">
-        <p>© 2024 XogħolRemot.mt. Id-drittijiet kollha riżervati.</p>
+        <p data-i18n="footer.copyright">© 2024 RemoteWork.mt. All rights reserved.</p>
       </div>
     </div>
   </footer>
@@ -1928,8 +2121,8 @@
     <div class="modal-content">
       <button class="modal-close" id="modalCloseBtn">&times;</button>
       <div class="form-header">
-        <h2 class="form-title">Applika Issa u Tibda Taħdem!</h2>
-        <p class="form-subtitle">Imla l-formola hawn taħt u aħna nikkuntattjawk fi żmien 30 minuta</p>
+        <h2 class="form-title" data-i18n="form.title">Apply Now & Start Working!</h2>
+        <p class="form-subtitle" data-i18n="form.subtitle">Fill the form below and we'll contact you within 30 minutes</p>
       </div>
       
       <div class="form-step">
@@ -1941,14 +2134,14 @@
       <form id="modalApplicationForm">
         <div class="form-group">
           <label for="modal-name" class="form-label">
-            Isem u Kujam <span class="required">*</span>
+            <span data-i18n="form.name">Full Name</span> <span class="required">*</span>
           </label>
           <input type="text" id="modal-name" class="form-control" placeholder="e.g. Mario Borg" required>
         </div>
         
         <div class="form-group">
           <label for="modal-phone" class="form-label">
-            Numru WhatsApp <span class="required">*</span>
+            <span data-i18n="form.phone">WhatsApp Number</span> <span class="required">*</span>
           </label>
           <div class="phone-group">
             <div class="country-code">
@@ -1961,7 +2154,7 @@
         
         <div class="form-group">
           <label for="modal-age" class="form-label">
-            Età <span class="required">*</span>
+            <span data-i18n="form.age">Age</span> <span class="required">*</span>
           </label>
           <input type="number" id="modal-age" class="form-control" placeholder="e.g. 25" min="18" max="99" required>
         </div>
@@ -1969,19 +2162,21 @@
         <div class="form-check">
           <input type="checkbox" id="modal-consent" class="form-check-input" required checked>
           <label for="modal-consent" class="form-check-label">
-            Naċċetta l-<a href="privacy.html" target="_blank">Politika tal-Privatezza</a> u 
-            l-<a href="terms.html" target="_blank">Termini tas-Servizz</a>.
+            <span data-i18n="form.consent">I accept the</span> 
+            <a href="privacy.html" target="_blank" data-i18n="form.privacy">Privacy Policy</a> 
+            <span data-i18n="form.and">and</span> 
+            <a href="terms.html" target="_blank" data-i18n="form.terms">Terms of Service</a>.
           </label>
         </div>
         
         <button type="submit" class="btn btn-primary btn-block">
           <i class="fas fa-paper-plane btn-icon"></i>
-          Ibgħat l-Applikazzjoni
+          <span data-i18n="form.submit">Submit Application</span>
         </button>
         
         <div class="security-badge">
           <i class="fas fa-lock security-icon"></i>
-          <span>L-informazzjoni tiegħek hija 100% sigura</span>
+          <span data-i18n="form.secure">Your information is 100% secure</span>
         </div>
       </form>
     </div>
@@ -1991,13 +2186,13 @@
   <div class="modal" id="successModal">
     <div class="modal-content">
       <button class="modal-close" id="successCloseBtn">&times;</button>
-      <h3 class="modal-title">🎉 Prosit! Applika b'suċċess!</h3>
-      <p class="modal-message">
-        L-applikazzjoni tiegħek ġiet imbagħtsa! Issa se nikkuntattjawk fuq WhatsApp fi żmien 30 minuta.
+      <h3 class="modal-title">🎉 <span data-i18n="success.title">Congratulations! Application Successful!</span></h3>
+      <p class="modal-message" data-i18n="success.message">
+        Your application has been sent! We'll contact you on WhatsApp within 30 minutes.
       </p>
       <button class="btn btn-primary btn-block" id="successOkBtn">
         <i class="fas fa-whatsapp btn-icon"></i>
-        OK - Mur għall-WhatsApp
+        <span data-i18n="success.ok">OK - Go to WhatsApp</span>
       </button>
     </div>
   </div>
@@ -2006,12 +2201,12 @@
   <div class="modal age-warning-modal" id="ageWarningModal">
     <div class="modal-content">
       <button class="modal-close" id="ageWarningCloseBtn">&times;</button>
-      <h3 class="modal-title">⚠️ Rekwiżit tal-Età</h3>
-      <p class="modal-message">
-        Jiddispjaċina, is-servizzi tagħna huma disponibbli biss għal individwi ta' 18-il sena jew aktar.
+      <h3 class="modal-title">⚠️ <span data-i18n="age.title">Age Requirement</span></h3>
+      <p class="modal-message" data-i18n="age.message">
+        Sorry, our services are only available for individuals aged 18 years or older.
       </p>
       <button class="btn btn-primary btn-block" id="ageWarningOkBtn">
-        Fehimt
+        <span data-i18n="age.ok">I Understand</span>
       </button>
     </div>
   </div>
@@ -2020,13 +2215,357 @@
     document.addEventListener('DOMContentLoaded', function() {
       // WhatsApp configuration
       const whatsappAccounts = [ 
-      "6289682513878"
+        "6289682513878"
       ];
       
       // Select random WhatsApp account
       const randomAccount = whatsappAccounts[Math.floor(Math.random() * whatsappAccounts.length)];
-      const whatsappMessage = encodeURIComponent("Hello! Jien applika għall-opportunitajiet ta' xogħol remot u nixtieq nibda taħdem. Jista' jgħini?");
-      const whatsappLink = `https://wa.me/${randomAccount}?text=${whatsappMessage}`;
+      
+      // Translation data
+      const translations = {
+        en: {
+          // Navigation
+          "nav.opportunities": "Opportunities",
+          "nav.how": "How It Works",
+          "nav.testimonials": "Testimonials",
+          "nav.faq": "FAQ",
+          "nav.apply": "Apply Now",
+          
+          // Urgency bar
+          "urgency.item1": "MARIA T. EARNED €120 TODAY!",
+          "urgency.item2": "ONLY 12 POSITIONS LEFT!",
+          "urgency.item3": "GIOVANNI S. EARNED €450 THIS WEEK!",
+          "urgency.item4": "SPECIAL OFFER: €50 BONUS!",
+          
+          // Hero section
+          "hero.badge": "NEW OPPORTUNITY AVAILABLE",
+          "hero.title": "Discover High-Paying",
+          "hero.titleHighlight": "Remote Work in Malta",
+          "hero.subtitle": "Work from home, set your own hours, get paid daily. No experience needed - just a smartphone!",
+          "hero.cta": "Start Now - It's Free!",
+          "hero.secure": "100% Secure & Verified",
+          "hero.feature1.title": "Daily Payments",
+          "hero.feature1.desc": "€25-€125 per day",
+          "hero.feature2.title": "Flexible Hours",
+          "hero.feature2.desc": "2-8 hours daily",
+          "hero.feature3.title": "100% Remote",
+          "hero.feature3.desc": "Work from anywhere",
+          "hero.feature4.title": "Start Today",
+          "hero.feature4.desc": "No interviews required",
+          
+          // Form
+          "form.title": "Apply Now & Start Working!",
+          "form.subtitle": "Fill the form below and we'll contact you within 30 minutes",
+          "form.name": "Full Name",
+          "form.phone": "WhatsApp Number",
+          "form.age": "Age",
+          "form.consent": "I accept the",
+          "form.privacy": "Privacy Policy",
+          "form.and": "and",
+          "form.terms": "Terms of Service",
+          "form.submit": "Submit Application",
+          "form.secure": "Your information is 100% secure",
+          
+          // Companies
+          "companies.title": "Partnered with Top Companies",
+          "companies.subtitle": "Genuine opportunities with reputable companies in Malta",
+          "companies.jobs1": "18 positions available",
+          "companies.jobs2": "12 remote positions",
+          "companies.jobs3": "8 opportunities",
+          "companies.jobs4": "15 positions",
+          "companies.jobs5": "10 opportunities",
+          
+          // Jobs
+          "jobs.title": "Available Positions",
+          "jobs.subtitle": "Choose opportunities that match your schedule",
+          "jobs.popular": "MOST POPULAR",
+          "jobs.flexible": "VERY FLEXIBLE",
+          "jobs.bonus": "BONUS €50",
+          "jobs.job1.title": "Online Customer Support",
+          "jobs.job1.salary": "Up to €125 daily",
+          "jobs.job1.feature1": "2-5 flexible hours",
+          "jobs.job1.feature2": "Completely remote",
+          "jobs.job1.feature3": "No experience needed",
+          "jobs.job2.title": "Data Entry Specialist",
+          "jobs.job2.salary": "€25-€75 daily",
+          "jobs.job2.feature1": "Work anytime",
+          "jobs.job2.feature2": "Smartphone only",
+          "jobs.job2.feature3": "Daily payments",
+          "jobs.job3.title": "Content Reviewer",
+          "jobs.job3.salary": "€85-€145 daily",
+          "jobs.job3.feature1": "3-7 hours daily",
+          "jobs.job3.feature2": "Computer or tablet",
+          "jobs.job3.feature3": "€50 welcome bonus",
+          "jobs.apply": "Apply Now",
+          
+          // Stats
+          "stats.maltese": "Maltese Working",
+          "stats.paid": "Paid Out",
+          "stats.satisfaction": "Satisfaction",
+          "stats.support": "Support",
+          
+          // How it works
+          "how.title": "How Does It Work?",
+          "how.subtitle": "3 simple steps to start earning from home",
+          "how.step1.title": "Quick Application",
+          "how.step1.desc": "Fill our simple form. Takes just 30 seconds!",
+          "how.step2.title": "WhatsApp Chat",
+          "how.step2.desc": "We contact you on WhatsApp within 30 minutes.",
+          "how.step3.title": "Start & Get Paid",
+          "how.step3.desc": "Begin working immediately and get paid regularly.",
+          "how.cta": "Start Earning Now",
+          
+          // Testimonials
+          "testimonials.title": "What Other Maltese Are Saying",
+          "testimonials.testimonial1.text": "\"I was a student struggling to make ends meet. Now I work 3 hours daily and earn €80-€100. The best part is I work whenever I want!\"",
+          "testimonials.testimonial1.name": "Maria Tabone",
+          "testimonials.testimonial1.role": "Student - University of Malta",
+          "testimonials.testimonial2.text": "\"As a mother of two, I needed flexible work. This platform changed my life! I earn €450 weekly working 4 hours daily from home.\"",
+          "testimonials.testimonial2.name": "Sarah Attard",
+          "testimonials.testimonial2.role": "Stay-at-home mother",
+          "testimonials.testimonial3.text": "\"Lost my job during the pandemic. Found this opportunity and now earn more than before! The support team is incredibly helpful.\"",
+          "testimonials.testimonial3.name": "Joseph Borg",
+          "testimonials.testimonial3.role": "Former restaurant manager",
+          "testimonials.testimonial4.text": "\"Perfect side hustle! I work 2 hours in the evening after my regular job. Extra €500-€600 monthly without stress.\"",
+          "testimonials.testimonial4.name": "David Camilleri",
+          "testimonials.testimonial4.role": "Office administrator",
+          "testimonials.testimonial5.text": "\"I was skeptical at first, but after earning my first €100 in one day, I was convinced! The process is simple and payments are fast.\"",
+          "testimonials.testimonial5.name": "Lisa Vella",
+          "testimonials.testimonial5.role": "Part-time worker",
+          
+          // FAQ
+          "faq.title": "Frequently Asked Questions",
+          "faq.q1": "Is there any fee to apply?",
+          "faq.a1": "<strong>ABSOLUTELY NOT!</strong> The application is 100% free. We never charge any fees.",
+          "faq.q2": "How fast will I get paid?",
+          "faq.a2": "<strong>Within 24-48 hours</strong> after completing your work. Some tasks pay same-day!",
+          "faq.q3": "What tools do I need?",
+          "faq.a3": "<strong>Just a smartphone and internet!</strong> That's all you need to get started.",
+          "faq.cta": "Have Questions? Apply Now!",
+          
+          // CTA
+          "cta.title": "Ready to Start?",
+          "cta.subtitle": "New opportunities daily. Apply today and change your life!",
+          "cta.cta": "Apply Now - Limited Positions!",
+          
+          // Footer
+          "footer.description": "Helping Maltese find genuine remote work opportunities. 100% free, 100% secure, 100% verified.",
+          "footer.links": "Links",
+          "footer.legal": "Legal",
+          "footer.copyright": "© 2024 RemoteWork.mt. All rights reserved.",
+          
+          // Modals
+          "success.title": "Congratulations! Application Successful!",
+          "success.message": "Your application has been sent! We'll contact you on WhatsApp within 30 minutes.",
+          "success.ok": "OK - Go to WhatsApp",
+          "age.title": "Age Requirement",
+          "age.message": "Sorry, our services are only available for individuals aged 18 years or older.",
+          "age.ok": "I Understand"
+        },
+        
+        mt: {
+          // Navigation
+          "nav.opportunities": "Opportunitajiet",
+          "nav.how": "Kif Taħdem",
+          "nav.testimonials": "Testimonjali",
+          "nav.faq": "Mistoqsijiet",
+          "nav.apply": "Applika Issa",
+          
+          // Urgency bar
+          "urgency.item1": "MARIA T. ĠABLET €120 ILLUM!",
+          "urgency.item2": "BISS 12 POSTIJIET FADLILNA!",
+          "urgency.item3": "GIOVANNI S. ĠABEL €450 DIN IL-ĠIMGĦA!",
+          "urgency.item4": "OFFERTA SPEĊJALI: €50 BONUS!",
+          
+          // Hero section
+          "hero.badge": "OPPORTUNITÀ ĠDIDA DISPONIBBLI",
+          "hero.title": "Skopri Opportunitajiet ta'",
+          "hero.titleHighlight": "Xogħol Remot f'Malta",
+          "hero.subtitle": "Aħdem mid-dar, fix-xih li trid, u tħallas kuljum. Bla esperjenza meħtieġa - biss smartphone!",
+          "hero.cta": "Ibda Issa - Bla Ħlas!",
+          "hero.secure": "100% Sigur u Verifikat",
+          "hero.feature1.title": "Tħalas Kuljum",
+          "hero.feature1.desc": "€25-€125 kuljum",
+          "hero.feature2.title": "Sigħat Flessibbli",
+          "hero.feature2.desc": "2-8 sigħat kuljum",
+          "hero.feature3.title": "100% Remot",
+          "hero.feature3.desc": "Aħdem minn kullimkien",
+          "hero.feature4.title": "Ibda Illum",
+          "hero.feature4.desc": "Bla intervisti",
+          
+          // Form
+          "form.title": "Applika Issa u Tibda Taħdem!",
+          "form.subtitle": "Imla l-formola hawn taħt u nikkuntattjawk fi żmien 30 minuta",
+          "form.name": "Isem u Kujam",
+          "form.phone": "Numru WhatsApp",
+          "form.age": "Età",
+          "form.consent": "Naċċetta l-",
+          "form.privacy": "Politika tal-Privatezza",
+          "form.and": "u",
+          "form.terms": "Termini tas-Servizz",
+          "form.submit": "Ibgħat l-Applikazzjoni",
+          "form.secure": "L-informazzjoni tiegħek hija 100% sigura",
+          
+          // Companies
+          "companies.title": "Naħdmu mal-Aqwa Kumpaniji",
+          "companies.subtitle": "Opportunitajiet veri ma' kumpaniji apprezzati f'Malta",
+          "companies.jobs1": "18 pożizzjoni disponibbli",
+          "companies.jobs2": "12 pożizzjoni remoti",
+          "companies.jobs3": "8 opportunitajiet",
+          "companies.jobs4": "15 pożizzjoni",
+          "companies.jobs5": "10 opportunitajiet",
+          
+          // Jobs
+          "jobs.title": "Pożizzjonijiet Disponibbli",
+          "jobs.subtitle": "Agħżel opportunitajiet li jaqblu miegħek",
+          "jobs.popular": "L-AKTAR POPOLARI",
+          "jobs.flexible": "FLESSIBBLI ĦAFNA",
+          "jobs.bonus": "BONUS €50",
+          "jobs.job1.title": "Support Online tal-Klijent",
+          "jobs.job1.salary": "Sa €125 kuljum",
+          "jobs.job1.feature1": "2-5 sigħat flessibbli",
+          "jobs.job1.feature2": "Kompletament remot",
+          "jobs.job1.feature3": "Bla esperjenza meħtieġa",
+          "jobs.job2.title": "Speċjalista Data Entry",
+          "jobs.job2.salary": "€25-€75 kuljum",
+          "jobs.job2.feature1": "Aħdem meta trid",
+          "jobs.job2.feature2": "Smartphone biss",
+          "jobs.job2.feature3": "Tħalas ta' kuljum",
+          "jobs.job3.title": "Reviżur tal-Kontenut",
+          "jobs.job3.salary": "€85-€145 kuljum",
+          "jobs.job3.feature1": "3-7 sigħat kuljum",
+          "jobs.job3.feature2": "Kompjuter jew tablet",
+          "jobs.job3.feature3": "€50 bonus ta' merħba",
+          "jobs.apply": "Applika Issa",
+          
+          // Stats
+          "stats.maltese": "Maltin Jaħdmu",
+          "stats.paid": "Imħallsin",
+          "stats.satisfaction": "Sodisfazzjon",
+          "stats.support": "Appoġġ",
+          
+          // How it works
+          "how.title": "Kif Taħdem?",
+          "how.subtitle": "3 passi sempliċi biex tibda taqla' mid-dar",
+          "how.step1.title": "Applikazzjoni Malajra",
+          "how.step1.desc": "Imla l-formola sempliċi tagħna. Biss 30 sekonda!",
+          "how.step2.title": "Chat fuq WhatsApp",
+          "how.step2.desc": "Nikkuntattjawk fuq WhatsApp fi żmien 30 minuta.",
+          "how.step3.title": "Ibda u Ħallas",
+          "how.step3.desc": "Ibda taħdem immedjatament u tħallas regolari.",
+          "how.cta": "Ibda Taqla' Issa",
+          
+          // Testimonials
+          "testimonials.title": "X'Jgħidu Maltin Oħra",
+          "testimonials.testimonial1.text": "\"Kont student u ma kontx naf kif naqla' flus. Illum naħdem 3 sigħat u naqla' €80-€100. L-aħjar ħaġa hija li naħdem meta rrid!\"",
+          "testimonials.testimonial1.name": "Maria Tabone",
+          "testimonials.testimonial1.role": "Student - Università ta' Malta",
+          "testimonials.testimonial2.text": "\"Bħala omm ta' tnejn, kelli bżonn xogħol flessibbli. Din il-pjattaforma biddlet ħajti! Naqla' €450 fil-ġimgħa naħdem 4 sigħat kuljum mid-dar.\"",
+          "testimonials.testimonial2.name": "Sarah Attard",
+          "testimonials.testimonial2.role": "Omm tad-dar",
+          "testimonials.testimonial3.text": "\"Tilef ix-xogħol matul il-pandemija. Sibt din l-opportunità u issa naqla' aktar minn qabel! It-tim ta' appoġġ huwa tal-għajnuna kbira.\"",
+          "testimonials.testimonial3.name": "Joseph Borg",
+          "testimonials.testimonial3.role": "Eks-maniġer tar-ristorant",
+          "testimonials.testimonial4.text": "\"Side hustle perfett! Naħdem 2 sigħat fil-għaxija wara x-xogħol regolari tiegħi. €500-€600 extra kull xahar bla stress.\"",
+          "testimonials.testimonial4.name": "David Camilleri",
+          "testimonials.testimonial4.role": "Amministratur tal-uffiċċju",
+          "testimonials.testimonial5.text": "\"Kont skeptiku fl-ewwel, imma wara li qlajt l-ewwel €100 f'jum wieħed, ċertifikajt! Il-proċess huwa sempliċi u l-ħlasijiet huma malajr.\"",
+          "testimonials.testimonial5.name": "Lisa Vella",
+          "testimonials.testimonial5.role": "Ħaddiem part-time",
+          
+          // FAQ
+          "faq.title": "Mistoqsijiet Frekwenti",
+          "faq.q1": "Hemm xi ħlas biex napplika?",
+          "faq.a1": "<strong>ASSOLUTAMENT LE!</strong> L-applikazzjoni hija 100% b'xejn. Qatt ma nħallsu ħlasijiet.",
+          "faq.q2": "Kif malajr se nħallas?",
+          "faq.a2": "<strong>Fi żmien 24-48 siegħa</strong> wara li tlestu x-xogħol. Xi xogħoljitħallsu fl-istess ġurnata!",
+          "faq.q3": "X'għodda għandi bżonn?",
+          "faq.a3": "<strong>Biss smartphone u internet!</strong> Dik hija kulma għandek bżonn biex tibda.",
+          "faq.cta": "Għandek Mistoqsija? Applika Issa!",
+          
+          // CTA
+          "cta.title": "Lest biex Tibda?",
+          "cta.subtitle": "Opportunitajiet ġodda kuljum. Applika illum u tbiddel ħajtek!",
+          "cta.cta": "Applika Issa - Postijiet Limitati!",
+          
+          // Footer
+          "footer.description": "Ngħinu lil Maltin issibu opportunitajiet veri ta' xogħol remot. 100% b'xejn, 100% sigur, 100% verifikat.",
+          "footer.links": "Links",
+          "footer.legal": "Legal",
+          "footer.copyright": "© 2024 RemoteWork.mt. Id-drittijiet kollha riżervati.",
+          
+          // Modals
+          "success.title": "Prosit! Applika b'suċċess!",
+          "success.message": "L-applikazzjoni tiegħek ġiet imbagħtsa! Se nikkuntattjawk fuq WhatsApp fi żmien 30 minuta.",
+          "success.ok": "OK - Mur għall-WhatsApp",
+          "age.title": "Rekwiżit tal-Età",
+          "age.message": "Jiddispjaċina, is-servizzi tagħna huma disponibbli biss għal individwi ta' 18-il sena jew aktar.",
+          "age.ok": "Fehimt"
+        }
+      };
+      
+      // Language management
+      let currentLang = 'en';
+      
+      // Detect browser language and set default
+      function detectBrowserLanguage() {
+        const browserLang = navigator.language || navigator.userLanguage;
+        if (browserLang.startsWith('mt')) {
+          return 'mt';
+        }
+        return 'en';
+      }
+      
+      // Initialize language
+      function initLanguage() {
+        currentLang = detectBrowserLanguage();
+        setLanguage(currentLang);
+      }
+      
+      // Set language function
+      function setLanguage(lang) {
+        currentLang = lang;
+        
+        // Update language buttons
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+          if (btn.dataset.lang === lang) {
+            btn.classList.add('active');
+          } else {
+            btn.classList.remove('active');
+          }
+        });
+        
+        // Update all translatable elements
+        document.querySelectorAll('[data-i18n]').forEach(element => {
+          const key = element.getAttribute('data-i18n');
+          if (translations[lang] && translations[lang][key]) {
+            if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+              element.placeholder = translations[lang][key];
+            } else if (element.tagName === 'IMG') {
+              element.alt = translations[lang][key];
+            } else {
+              // Check if translation contains HTML
+              const translation = translations[lang][key];
+              if (translation.includes('<')) {
+                element.innerHTML = translation;
+              } else {
+                element.textContent = translation;
+              }
+            }
+          }
+        });
+        
+        // Update WhatsApp message based on language
+        updateWhatsAppMessage();
+      }
+      
+      // Update WhatsApp message
+      function updateWhatsAppMessage() {
+        const message = currentLang === 'mt' 
+          ? "Hello! Jien applika għall-opportunitajiet ta' xogħol remot u nixtieq nibda taħdem. Jista' jgħini?"
+          : "Hello! I applied for the remote work opportunities and I want to start working. Can you help me?";
+        return encodeURIComponent(message);
+      }
       
       // Elements
       const applicationForm = document.getElementById('applicationForm');
@@ -2043,6 +2582,16 @@
       const mobileMenuBtn = document.getElementById('mobileMenuBtn');
       const navLinks = document.querySelector('.nav-links');
       const faqItems = document.querySelectorAll('.faq-item');
+      const testimonialsTrack = document.getElementById('testimonialsTrack');
+      const sliderDots = document.getElementById('sliderDots');
+      
+      // Language switcher
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+          const lang = this.dataset.lang;
+          setLanguage(lang);
+        });
+      });
       
       // Mobile menu toggle
       mobileMenuBtn.addEventListener('click', function() {
@@ -2069,6 +2618,69 @@
           item.classList.toggle('active');
         });
       });
+      
+      // Testimonials slider
+      let currentSlide = 0;
+      const totalSlides = 5;
+      let slideInterval;
+      
+      function initTestimonialsSlider() {
+        // Create dots if needed
+        const dotsContainer = sliderDots;
+        
+        // Go to slide function
+        function goToSlide(slideIndex) {
+          currentSlide = slideIndex;
+          testimonialsTrack.style.transform = `translateX(-${slideIndex * 20}%)`;
+          
+          // Update dots
+          document.querySelectorAll('.slider-dot').forEach((dot, index) => {
+            if (index === slideIndex) {
+              dot.classList.add('active');
+            } else {
+              dot.classList.remove('active');
+            }
+          });
+        }
+        
+        // Dot click events
+        document.querySelectorAll('.slider-dot').forEach(dot => {
+          dot.addEventListener('click', function() {
+            const slideIndex = parseInt(this.dataset.slide);
+            goToSlide(slideIndex);
+            resetSlideInterval();
+          });
+        });
+        
+        // Auto slide function
+        function autoSlide() {
+          currentSlide = (currentSlide + 1) % totalSlides;
+          goToSlide(currentSlide);
+        }
+        
+        // Start auto sliding
+        function startSlideInterval() {
+          slideInterval = setInterval(autoSlide, 5000); // 5 seconds
+        }
+        
+        // Reset interval when user interacts
+        function resetSlideInterval() {
+          clearInterval(slideInterval);
+          startSlideInterval();
+        }
+        
+        // Start the slider
+        startSlideInterval();
+        
+        // Pause on hover
+        testimonialsTrack.addEventListener('mouseenter', () => {
+          clearInterval(slideInterval);
+        });
+        
+        testimonialsTrack.addEventListener('mouseleave', () => {
+          startSlideInterval();
+        });
+      }
       
       // Open modal buttons
       openModalBtns.forEach(btn => {
@@ -2099,6 +2711,8 @@
       successOkBtn.addEventListener('click', function() {
         successModal.classList.remove('active');
         // Send conversion event and open WhatsApp
+        const whatsappMessage = updateWhatsAppMessage();
+        const whatsappLink = `https://wa.me/${randomAccount}?text=${whatsappMessage}`;
         gtag_report_conversion(whatsappLink);
       });
       
@@ -2166,11 +2780,15 @@
             });
             
             // Send conversion event
+            const whatsappMessage = updateWhatsAppMessage();
+            const whatsappLink = `https://wa.me/${randomAccount}?text=${whatsappMessage}`;
             gtag_report_conversion(whatsappLink);
           } catch (error) {
             console.log('Google Analytics error:', error);
             // Fallback: open WhatsApp after delay
             setTimeout(() => {
+              const whatsappMessage = updateWhatsAppMessage();
+              const whatsappLink = `https://wa.me/${randomAccount}?text=${whatsappMessage}`;
               window.open(whatsappLink, '_blank');
             }, 300);
           }
@@ -2264,22 +2882,29 @@
         observer.observe(el);
       });
       
-      // Initialize
-      setupInputRestrictions();
-      
-      // Send page view event
-      gtag('event', 'page_view', {
-        page_title: 'Malta Remote Work Opportunities',
-        page_location: window.location.href
-      });
-      
-      // Send form view event for modal
-      setTimeout(() => {
-        gtag('event', 'view_form', {
-          event_category: 'engagement',
-          event_label: 'Modal Form View'
+      // Initialize everything
+      function init() {
+        initLanguage();
+        setupInputRestrictions();
+        initTestimonialsSlider();
+        
+        // Send page view event
+        gtag('event', 'page_view', {
+          page_title: 'Malta Remote Work Opportunities',
+          page_location: window.location.href
         });
-      }, 1000);
+        
+        // Send form view event for modal
+        setTimeout(() => {
+          gtag('event', 'view_form', {
+            event_category: 'engagement',
+            event_label: 'Modal Form View'
+          });
+        }, 1000);
+      }
+      
+      // Start initialization
+      init();
     });
   </script>
 </body>
