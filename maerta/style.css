@@ -1,9 +1,9 @@
     /* === style.css === */
     :root {
       /* Malta-inspired color palette */
-      --primary: #CF142B;      /* Malta Red */
-      --secondary: #E5A900;    /* Malta Gold */
-      --accent: #007F3D;       /* Malta Green */
+      --primary: #CF142B;
+      --secondary: #E5A900;
+      --accent: #007F3D;
       --light: #F8F9FA;
       --dark: #1A202C;
       --gray-100: #F7FAFC;
